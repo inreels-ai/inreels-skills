@@ -1,0 +1,661 @@
+{
+  "title": "The Last Watch",
+  "titleCard": {
+    "kicker": "A film in one night",
+    "lines": [
+      "THE LAST",
+      "WATCH"
+    ]
+  },
+  "logline": "On his final night before automation, a lighthouse keeper's replacement fails in a storm, and one old flame has to do the job.",
+  "twist": "Lightning kills the new automated lamp just as a freighter closes on the reef, so Silas lights the old lens by hand.",
+  "closingLine": "Some lights aren't switched on. They're kept.",
+  "style": "Painterly noir animation, thick visible oil-paint brushwork on textured canvas, storm-lit chiaroscuro, deep muted teal shadows and sea, warm lantern amber as the only bright accent, heavy rain streaks, soft film grain, vertical 9:16 framing",
+  "characters": [
+    {
+      "name": "Silas Marrow",
+      "role": "Veteran lighthouse keeper, 68, on his final night",
+      "look": "Weathered long face, deep-set grey eyes, bushy white eyebrows, short white stubble beard, hollow cheeks; dark teal oilskin coat with tarnished brass buttons, charcoal wool cap, mustard-yellow scarf; always carries a dented brass storm lantern with a cracked amber glass pane.",
+      "sheet": "work/char-silas-marrow.jpg"
+    }
+  ],
+  "score": {
+    "mood": "Melancholy, tense, then quietly triumphant",
+    "opening": "Low, lonely cello over howling wind",
+    "build": "Slow pulsing drone and distant foghorn, swelling with thunder",
+    "resolution": "Cello returns warm and steady as the amber beam sweeps the sea"
+  },
+  "shots": [
+    {
+      "index": 1,
+      "type": "close-up",
+      "narration": "Silas wiped the lens one last time as the storm hammered.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "Silas's weathered hands in a cloth wipe a huge brass-framed glass lens, amber lantern glow on his face, rain lashing the dark teal window behind him.",
+      "camera": "push-in",
+      "motionScore": 2,
+      "motionPrompt": "The cloth makes one slow circular wipe across the glass while the camera drifts gently in.",
+      "sfx": "Cloth squeaking on glass, wind howling",
+      "act": 1,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.48,
+        "y": 0.45
+      },
+      "image": "work/shots/01.jpg",
+      "voice": {
+        "start": 0,
+        "end": 4.029,
+        "words": [
+          {
+            "word": "Silas",
+            "start": 0,
+            "end": 0.58
+          },
+          {
+            "word": "wiped",
+            "start": 0.685,
+            "end": 0.987
+          },
+          {
+            "word": "the",
+            "start": 1.01,
+            "end": 1.08
+          },
+          {
+            "word": "lens",
+            "start": 1.138,
+            "end": 1.498
+          },
+          {
+            "word": "one",
+            "start": 1.625,
+            "end": 1.881
+          },
+          {
+            "word": "last",
+            "start": 1.927,
+            "end": 2.194
+          },
+          {
+            "word": "time",
+            "start": 2.241,
+            "end": 2.589
+          },
+          {
+            "word": "as",
+            "start": 2.624,
+            "end": 2.717
+          },
+          {
+            "word": "the",
+            "start": 2.763,
+            "end": 2.833
+          },
+          {
+            "word": "storm",
+            "start": 2.879,
+            "end": 3.251
+          },
+          {
+            "word": "hammered.",
+            "start": 3.309,
+            "end": 4.029
+          }
+        ]
+      },
+      "sfxFile": "work/sfx/01.mp3",
+      "from": 0,
+      "dur": 4.447,
+      "seg": "work/seg/01.mp4"
+    },
+    {
+      "index": 2,
+      "type": "establishing wide",
+      "narration": "By morning, a grey machine would replace him.",
+      "characters": [],
+      "visual": "The whole lighthouse on a black rock in a churning teal sea, waves exploding against its base, a thin amber glow in the lamp room under heavy storm clouds.",
+      "camera": "slow tilt up",
+      "motionScore": 3,
+      "motionPrompt": "Waves crash and spray against the rock while the camera tilts slowly up the tower.",
+      "sfx": "Crashing waves, deep thunder",
+      "act": 1,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.54,
+        "y": 0.5
+      },
+      "image": "work/shots/02.jpg",
+      "voice": {
+        "start": 4.447,
+        "end": 7.419,
+        "words": [
+          {
+            "word": "By",
+            "start": 4.447,
+            "end": 4.632
+          },
+          {
+            "word": "morning,",
+            "start": 4.714,
+            "end": 5.399
+          },
+          {
+            "word": "a",
+            "start": 5.561,
+            "end": 5.642
+          },
+          {
+            "word": "grey",
+            "start": 5.724,
+            "end": 5.898
+          },
+          {
+            "word": "machine",
+            "start": 5.956,
+            "end": 6.316
+          },
+          {
+            "word": "would",
+            "start": 6.339,
+            "end": 6.49
+          },
+          {
+            "word": "replace",
+            "start": 6.525,
+            "end": 6.966
+          },
+          {
+            "word": "him.",
+            "start": 7.012,
+            "end": 7.419
+          }
+        ]
+      },
+      "motionSkipped": true,
+      "clip": "work/clips/02.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/02.mp3",
+      "from": 4.447,
+      "dur": 3.3899999999999997,
+      "seg": "work/seg/02.mp4"
+    },
+    {
+      "index": 3,
+      "type": "over-the-shoulder",
+      "narration": "He switched it on and listened to it hum.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "Over Silas's shoulder, a sleek grey automated lamp unit beside the old lens, its small green status light glowing cold against the amber room.",
+      "camera": "static",
+      "motionScore": 1,
+      "motionPrompt": "The green status light pulses softly as Silas's shoulders sink, camera nearly still.",
+      "sfx": "Electronic hum, a soft click",
+      "act": 1,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.55,
+        "y": 0.55
+      },
+      "image": "work/shots/03.jpg",
+      "voice": {
+        "start": 7.837,
+        "end": 9.996,
+        "words": [
+          {
+            "word": "He",
+            "start": 7.837,
+            "end": 7.953
+          },
+          {
+            "word": "switched",
+            "start": 7.999,
+            "end": 8.29
+          },
+          {
+            "word": "it",
+            "start": 8.324,
+            "end": 8.394
+          },
+          {
+            "word": "on",
+            "start": 8.452,
+            "end": 8.626
+          },
+          {
+            "word": "and",
+            "start": 8.673,
+            "end": 8.754
+          },
+          {
+            "word": "listened",
+            "start": 8.8,
+            "end": 9.102
+          },
+          {
+            "word": "to",
+            "start": 9.125,
+            "end": 9.195
+          },
+          {
+            "word": "it",
+            "start": 9.276,
+            "end": 9.358
+          },
+          {
+            "word": "hum.",
+            "start": 9.392,
+            "end": 9.996
+          }
+        ]
+      },
+      "sfxFile": "work/sfx/03.mp3",
+      "from": 7.837,
+      "dur": 2.8209999999999997,
+      "seg": "work/seg/03.mp4"
+    },
+    {
+      "index": 4,
+      "type": "high angle",
+      "narration": "Out on the black water, a freighter drifted toward the reef.",
+      "characters": [],
+      "visual": "Looking down from the gallery through sheets of rain at a small freighter with dim yellow portholes, drifting off course toward jagged white reef in the dark teal sea.",
+      "camera": "pan right",
+      "motionScore": 3,
+      "motionPrompt": "The freighter rolls on heavy swells as the camera pans slowly along its course.",
+      "sfx": "Rain on iron railing, distant ship horn",
+      "act": 2,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.48,
+        "y": 0.47
+      },
+      "image": "work/shots/04.jpg",
+      "voice": {
+        "start": 10.658,
+        "end": 13.99,
+        "words": [
+          {
+            "word": "Out",
+            "start": 10.658,
+            "end": 10.879
+          },
+          {
+            "word": "on",
+            "start": 10.913,
+            "end": 10.983
+          },
+          {
+            "word": "the",
+            "start": 11.018,
+            "end": 11.088
+          },
+          {
+            "word": "black",
+            "start": 11.122,
+            "end": 11.343
+          },
+          {
+            "word": "water,",
+            "start": 11.401,
+            "end": 11.865
+          },
+          {
+            "word": "a",
+            "start": 11.923,
+            "end": 11.981
+          },
+          {
+            "word": "freighter",
+            "start": 12.074,
+            "end": 12.423
+          },
+          {
+            "word": "drifted",
+            "start": 12.504,
+            "end": 12.91
+          },
+          {
+            "word": "toward",
+            "start": 12.945,
+            "end": 13.247
+          },
+          {
+            "word": "the",
+            "start": 13.282,
+            "end": 13.351
+          },
+          {
+            "word": "reef.",
+            "start": 13.41,
+            "end": 13.99
+          }
+        ]
+      },
+      "motionSkipped": true,
+      "clip": "work/clips/04.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/04.mp3",
+      "from": 10.658,
+      "dur": 3.9939999999999998,
+      "seg": "work/seg/04.mp4"
+    },
+    {
+      "index": 5,
+      "type": "extreme close-up",
+      "narration": "Forty years of nights stared back from his ledger.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "A cracked leather logbook with inked entries of weather and ships, a brass pen, Silas's thumb resting on the page in amber lantern light.",
+      "camera": "push-in",
+      "motionScore": 0,
+      "motionPrompt": "Slow push-in across the inked lines as lantern light flickers faintly.",
+      "sfx": "Paper rustling, wooden clock ticking",
+      "act": 2,
+      "qc": {
+        "pass": false,
+        "flaws": [
+          "Several small marks on the logbook pages read as numbers or letters rather than weather or ship icons, such as '2', 'Z', '24' and 'O2' near the top-left of the left page, beside the sailboats, and on the right page. These count as pseudo-text."
+        ],
+        "attempts": 2
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "image": "work/shots/05.jpg",
+      "voice": {
+        "start": 14.652,
+        "end": 17.996,
+        "words": [
+          {
+            "word": "Forty",
+            "start": 14.652,
+            "end": 14.977
+          },
+          {
+            "word": "years",
+            "start": 15.035,
+            "end": 15.29
+          },
+          {
+            "word": "of",
+            "start": 15.348,
+            "end": 15.418
+          },
+          {
+            "word": "nights",
+            "start": 15.523,
+            "end": 15.929
+          },
+          {
+            "word": "stared",
+            "start": 16.115,
+            "end": 16.521
+          },
+          {
+            "word": "back",
+            "start": 16.568,
+            "end": 16.823
+          },
+          {
+            "word": "from",
+            "start": 16.904,
+            "end": 17.044
+          },
+          {
+            "word": "his",
+            "start": 17.09,
+            "end": 17.183
+          },
+          {
+            "word": "ledger.",
+            "start": 17.264,
+            "end": 17.996
+          }
+        ]
+      },
+      "sfxFile": "work/sfx/05.mp3",
+      "from": 14.652,
+      "dur": 3.820000000000002,
+      "seg": "work/seg/05.mp4"
+    },
+    {
+      "index": 6,
+      "type": "low angle",
+      "narration": "Thunder shook the tower.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "Low angle up the spiral stair of the lamp room, Silas gripping the rail as dust and rain-water fall, a blinding teal-white flash behind the glass.",
+      "camera": "handheld shake",
+      "motionScore": 2,
+      "motionPrompt": "The tower trembles and dust drifts down as the camera shakes slightly.",
+      "sfx": "Thunderclap, rattling metal",
+      "act": 2,
+      "qc": {
+        "pass": false,
+        "flaws": [
+          "A handwritten-style signature or watermark scribble sits in the bottom-right corner, around x=0.9, y=0.98. Any signature counts as text and fails the frame."
+        ],
+        "attempts": 2
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "image": "work/shots/06.jpg",
+      "voice": {
+        "start": 18.472,
+        "end": 20.19,
+        "words": [
+          {
+            "word": "Thunder",
+            "start": 18.472,
+            "end": 18.948
+          },
+          {
+            "word": "shook",
+            "start": 19.075,
+            "end": 19.331
+          },
+          {
+            "word": "the",
+            "start": 19.377,
+            "end": 19.447
+          },
+          {
+            "word": "tower.",
+            "start": 19.493,
+            "end": 20.19
+          }
+        ]
+      },
+      "sfxFile": "work/sfx/06.mp3",
+      "from": 18.472,
+      "dur": 2.193999999999999,
+      "seg": "work/seg/06.mp4"
+    },
+    {
+      "index": 7,
+      "type": "reveal",
+      "narration": "Lightning struck; the machine went dark.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "The grey automated lamp unit stands dark and lifeless, its round glass lens black and empty, thick grey smoke curling up from its casing; through the window behind it the freighter's yellow lights sit right at the white water of the reef; Silas stands frozen in the dark, lantern unlit at his side.",
+      "camera": "pull-back",
+      "motionScore": 2,
+      "motionPrompt": "A thin wisp of smoke rises from the dead machine as the camera pulls back to reveal the ship in the window.",
+      "sfx": "Electric crackle dying, sudden silence",
+      "act": 3,
+      "focus": {
+        "x": 0.3,
+        "y": 0.42
+      },
+      "image": "work/shots/07.jpg",
+      "qc": {
+        "pass": true,
+        "flaws": [
+          "Silas's lantern is lit and glowing, though the brief says unlit. This is a minor prop difference and does not fail the frame."
+        ],
+        "attempts": 1
+      },
+      "voice": {
+        "start": 20.666,
+        "end": 23.243,
+        "words": [
+          {
+            "word": "Lightning",
+            "start": 20.666,
+            "end": 21.072
+          },
+          {
+            "word": "struck;",
+            "start": 21.165,
+            "end": 21.757
+          },
+          {
+            "word": "the",
+            "start": 21.943,
+            "end": 22.036
+          },
+          {
+            "word": "machine",
+            "start": 22.082,
+            "end": 22.419
+          },
+          {
+            "word": "went",
+            "start": 22.454,
+            "end": 22.628
+          },
+          {
+            "word": "dark.",
+            "start": 22.686,
+            "end": 23.243
+          }
+        ]
+      },
+      "sfxFile": "work/sfx/07.mp3",
+      "from": 20.666,
+      "dur": 3.134999999999998,
+      "seg": "work/seg/07.mp4"
+    },
+    {
+      "index": 8,
+      "type": "epilogue",
+      "narration": "Silas struck a match, and the old flame answered.",
+      "characters": [
+        "Silas Marrow"
+      ],
+      "visual": "Silas lights his dented brass lantern and sets it in the old lens; a huge amber beam sweeps across the teal sea, and the freighter's bow turns away from the reef.",
+      "camera": "pull-back",
+      "motionScore": 3,
+      "motionPrompt": "The amber beam sweeps across the rain and sea as the camera pulls back from the tower.",
+      "sfx": "Match flare, whoosh of flame, ship horn answering",
+      "act": 3,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.62,
+        "y": 0.45
+      },
+      "image": "work/shots/08.jpg",
+      "voice": {
+        "start": 23.801,
+        "end": 27.121,
+        "words": [
+          {
+            "word": "Silas",
+            "start": 23.801,
+            "end": 24.323
+          },
+          {
+            "word": "struck",
+            "start": 24.369,
+            "end": 24.613
+          },
+          {
+            "word": "a",
+            "start": 24.66,
+            "end": 24.683
+          },
+          {
+            "word": "match,",
+            "start": 24.741,
+            "end": 25.147
+          },
+          {
+            "word": "and",
+            "start": 25.182,
+            "end": 25.298
+          },
+          {
+            "word": "the",
+            "start": 25.345,
+            "end": 25.414
+          },
+          {
+            "word": "old",
+            "start": 25.472,
+            "end": 25.623
+          },
+          {
+            "word": "flame",
+            "start": 25.681,
+            "end": 26.041
+          },
+          {
+            "word": "answered.",
+            "start": 26.123,
+            "end": 27.121
+          }
+        ]
+      },
+      "motionSkipped": true,
+      "clip": "work/clips/08.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/08.mp3",
+      "from": 23.801,
+      "dur": 4.920000000000002,
+      "seg": "work/seg/08.mp4"
+    }
+  ],
+  "meta": {
+    "seconds": 33,
+    "maxWords": 69,
+    "words": 67,
+    "idea": "a lighthouse keeper's last night before the lighthouse is automated",
+    "generatedAt": "2026-11-05T17:26:05.644Z"
+  },
+  "narration": {
+    "file": "work/narration.mp3",
+    "seconds": 27.121,
+    "words": 67
+  },
+  "mix": "work/mix.m4a"
+}

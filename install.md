@@ -32,13 +32,23 @@ rm -rf /tmp/inreels-skills
 
 For Cursor or Codex, copy into that client's skills directory instead.
 
-Install all three, or only the ones the user wants:
+Install all of them, or only the ones the user wants:
 
 | Skill | Use it when they ask for |
 |---|---|
+| `animated-short` | an animated short film, a narrated story reel, a cinematic short, a series |
 | `ugc-ad` | a UGC ad, creator ad, testimonial, talking-head product video |
-| `ad-creative` | static ad images, Meta/Instagram/TikTok creatives, angle testing |
-| `faceless-video` | a faceless short, narrated video, documentary reel, brainrot |
+| `product-demo-ad` | a product video with no presenter, a demo ad |
+| `ad-creative` | static ad images, Meta/Instagram/TikTok creatives |
+| `faceless-video` | a faceless short, narrated video, documentary reel |
+| `scary-story-video` | horror, true crime, unsolved mysteries |
+| `hook-writing` | help with the first two seconds of anything |
+| `ad-angle-testing` | ad variations, A/B creative, a batch to test |
+| `character-consistency` | the same character across several clips |
+
+`animated-short` is self-contained: it ships its own scripts and runs on
+Replicate/fal/ElevenLabs keys, or on the inReels MCP as the no-key option. It
+needs `ffmpeg` installed. The others are craft for the MCP server.
 
 ## 3. Check it works
 

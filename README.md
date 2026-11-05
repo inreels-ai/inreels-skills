@@ -33,14 +33,32 @@ see <https://www.inreels.ai/connect>.
 
 ## The skills
 
+**Make something**
+
 | Skill | What it does |
 |---|---|
-| [`ugc-ad`](skills/ugc-ad/SKILL.md) | Product image + creator + spoken script → rendered UGC video ad, with native audio |
-| [`ad-creative`](skills/ad-creative/SKILL.md) | Angle → hook → rendered static ad creative, sized for the placement |
-| [`faceless-video`](skills/faceless-video/SKILL.md) | Retention-shaped script → scenes, narration, captions → rendered MP4 |
+| [`animated-short`](animated-short/SKILL.md) | One line → an animated short film: story, consistent character, narration, sound, rendered MP4 |
+| [`ugc-ad`](ugc-ad/SKILL.md) | Product image + creator + spoken script → rendered UGC video ad, with native audio |
+| [`product-demo-ad`](product-demo-ad/SKILL.md) | No presenter — the product doing its job, in motion |
+| [`ad-creative`](ad-creative/SKILL.md) | Angle → hook → rendered static ad creative, sized for the placement |
+| [`faceless-video`](faceless-video/SKILL.md) | Retention-shaped script → scenes, narration, captions → rendered MP4 |
+| [`scary-story-video`](scary-story-video/SKILL.md) | Horror, true crime and unsolved mystery shorts, and the craft they need |
+
+**Craft the others lean on**
+
+| Skill | What it does |
+|---|---|
+| [`hook-writing`](hook-writing/SKILL.md) | The first two seconds — five shapes that work, and testing them properly |
+| [`ad-angle-testing`](ad-angle-testing/SKILL.md) | A set of ads that disagree usefully, instead of one ad four times |
+| [`character-consistency`](character-consistency/SKILL.md) | Keep the same person or product across several generated clips |
 
 Each one states its method, names the failure modes it has actually seen, and
 is honest about what it does not do.
+
+`animated-short` is the odd one out: it ships working scripts and runs on
+whatever backend you point it at — Replicate, fal, ElevenLabs, or the inReels
+MCP as the no-key option. The rest are craft and method for the MCP server
+below.
 
 ## What the MCP server exposes
 
