@@ -29,6 +29,8 @@ for (const s of story.shots) {
   for (const name of s.characters ?? [])
     if (!story.characters.some((c) => c.name === name))
       problems.push(`shot ${s.index} names "${name}", who has no locked look in characters[].`);
+  if (/\b(squeak|squeal|scrape|scratch|hiss|static|screech|grind|feedback)\b/i.test(s.sfx ?? ''))
+    warn.push(`shot ${s.index}: "${s.sfx}" is an abrasive effect and sits in the same band as speech — it reads as noise under narration. Pick a rounder sound.`);
   if (/\b(no|not|without|un\w+ed)\b/i.test(s.visual) && /light|lit|glow/i.test(s.visual))
     warn.push(`shot ${s.index}: the visual negates something visible — models paint what you negate. Describe what IS.`);
 }

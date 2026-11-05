@@ -37,7 +37,7 @@
       "camera": "push-in",
       "motionScore": 2,
       "motionPrompt": "The cloth makes one slow circular wipe across the glass while the camera drifts gently in.",
-      "sfx": "Cloth squeaking on glass, wind howling",
+      "sfx": "Soft cloth wiping glass, low wind outside, distant sea swell",
       "act": 1,
       "qc": {
         "pass": true,
@@ -50,69 +50,69 @@
       },
       "image": "work/shots/01.jpg",
       "voice": {
-        "start": 0,
-        "end": 4.029,
+        "start": 0.6,
+        "end": 4.755999999999999,
         "words": [
           {
             "word": "Silas",
-            "start": 0,
-            "end": 0.58
+            "start": 0.6,
+            "end": 1.2149999999999999
           },
           {
             "word": "wiped",
-            "start": 0.685,
-            "end": 0.987
+            "start": 1.401,
+            "end": 1.749
           },
           {
             "word": "the",
-            "start": 1.01,
-            "end": 1.08
+            "start": 1.842,
+            "end": 1.947
           },
           {
             "word": "lens",
-            "start": 1.138,
-            "end": 1.498
+            "start": 2.04,
+            "end": 2.411
           },
           {
             "word": "one",
-            "start": 1.625,
-            "end": 1.881
+            "start": 2.492,
+            "end": 2.678
           },
           {
             "word": "last",
-            "start": 1.927,
-            "end": 2.194
+            "start": 2.725,
+            "end": 2.992
           },
           {
             "word": "time",
-            "start": 2.241,
-            "end": 2.589
+            "start": 3.0380000000000003,
+            "end": 3.386
           },
           {
             "word": "as",
-            "start": 2.624,
-            "end": 2.717
+            "start": 3.4210000000000003,
+            "end": 3.5140000000000002
           },
           {
             "word": "the",
-            "start": 2.763,
-            "end": 2.833
+            "start": 3.572,
+            "end": 3.642
           },
           {
             "word": "storm",
-            "start": 2.879,
-            "end": 3.251
+            "start": 3.688,
+            "end": 4.06
           },
           {
             "word": "hammered.",
-            "start": 3.309,
-            "end": 4.029
+            "start": 4.141,
+            "end": 4.755999999999999
           }
         ]
       },
       "sfxFile": "work/sfx/01.mp3",
       "from": 0,
-      "dur": 4.447,
+      "dur": 5.417999999999999,
       "seg": "work/seg/01.mp4"
     },
     {
@@ -137,48 +137,48 @@
       },
       "image": "work/shots/02.jpg",
       "voice": {
-        "start": 4.447,
-        "end": 7.419,
+        "start": 5.417999999999999,
+        "end": 8.216,
         "words": [
           {
             "word": "By",
-            "start": 4.447,
-            "end": 4.632
+            "start": 5.417999999999999,
+            "end": 5.603999999999999
           },
           {
             "word": "morning,",
-            "start": 4.714,
-            "end": 5.399
+            "start": 5.685,
+            "end": 6.218999999999999
           },
           {
             "word": "a",
-            "start": 5.561,
-            "end": 5.642
+            "start": 6.311999999999999,
+            "end": 6.369999999999999
           },
           {
             "word": "grey",
-            "start": 5.724,
-            "end": 5.898
+            "start": 6.451,
+            "end": 6.637
           },
           {
             "word": "machine",
-            "start": 5.956,
-            "end": 6.316
+            "start": 6.694999999999999,
+            "end": 7.044
           },
           {
             "word": "would",
-            "start": 6.339,
-            "end": 6.49
+            "start": 7.066999999999999,
+            "end": 7.2059999999999995
           },
           {
             "word": "replace",
-            "start": 6.525,
-            "end": 6.966
+            "start": 7.252999999999999,
+            "end": 7.6819999999999995
           },
           {
             "word": "him.",
-            "start": 7.012,
-            "end": 7.419
+            "start": 7.728999999999999,
+            "end": 8.216
           }
         ]
       },
@@ -186,8 +186,8 @@
       "clip": "work/clips/02.mp4",
       "clipSeconds": 5,
       "sfxFile": "work/sfx/02.mp3",
-      "from": 4.447,
-      "dur": 3.3899999999999997,
+      "from": 5.417999999999999,
+      "dur": 3.553000000000001,
       "seg": "work/seg/02.mp4"
     },
     {
@@ -214,59 +214,59 @@
       },
       "image": "work/shots/03.jpg",
       "voice": {
-        "start": 7.837,
-        "end": 9.996,
+        "start": 8.971,
+        "end": 11.177,
         "words": [
           {
             "word": "He",
-            "start": 7.837,
-            "end": 7.953
+            "start": 8.971,
+            "end": 9.099
           },
           {
             "word": "switched",
-            "start": 7.999,
-            "end": 8.29
+            "start": 9.145,
+            "end": 9.447
           },
           {
             "word": "it",
-            "start": 8.324,
-            "end": 8.394
+            "start": 9.482,
+            "end": 9.551
           },
           {
             "word": "on",
-            "start": 8.452,
-            "end": 8.626
+            "start": 9.609,
+            "end": 9.783
           },
           {
             "word": "and",
-            "start": 8.673,
-            "end": 8.754
+            "start": 9.842,
+            "end": 9.923
           },
           {
             "word": "listened",
-            "start": 8.8,
-            "end": 9.102
+            "start": 9.981,
+            "end": 10.283
           },
           {
             "word": "to",
-            "start": 9.125,
-            "end": 9.195
+            "start": 10.306,
+            "end": 10.376
           },
           {
             "word": "it",
-            "start": 9.276,
-            "end": 9.358
+            "start": 10.468,
+            "end": 10.538
           },
           {
             "word": "hum.",
-            "start": 9.392,
-            "end": 9.996
+            "start": 10.584999999999999,
+            "end": 11.177
           }
         ]
       },
       "sfxFile": "work/sfx/03.mp3",
-      "from": 7.837,
-      "dur": 2.8209999999999997,
+      "from": 8.971,
+      "dur": 2.959999999999999,
       "seg": "work/seg/03.mp4"
     },
     {
@@ -291,63 +291,63 @@
       },
       "image": "work/shots/04.jpg",
       "voice": {
-        "start": 10.658,
-        "end": 13.99,
+        "start": 11.931,
+        "end": 15.426,
         "words": [
           {
             "word": "Out",
-            "start": 10.658,
-            "end": 10.879
+            "start": 11.931,
+            "end": 12.139999999999999
           },
           {
             "word": "on",
-            "start": 10.913,
-            "end": 10.983
+            "start": 12.187,
+            "end": 12.256
           },
           {
             "word": "the",
-            "start": 11.018,
-            "end": 11.088
+            "start": 12.302999999999999,
+            "end": 12.373
           },
           {
             "word": "black",
-            "start": 11.122,
-            "end": 11.343
+            "start": 12.407,
+            "end": 12.639999999999999
           },
           {
             "word": "water,",
-            "start": 11.401,
-            "end": 11.865
+            "start": 12.721,
+            "end": 13.266
           },
           {
             "word": "a",
-            "start": 11.923,
-            "end": 11.981
+            "start": 13.359,
+            "end": 13.417
           },
           {
             "word": "freighter",
-            "start": 12.074,
-            "end": 12.423
+            "start": 13.51,
+            "end": 13.834999999999999
           },
           {
             "word": "drifted",
-            "start": 12.504,
-            "end": 12.91
+            "start": 13.892999999999999,
+            "end": 14.288
           },
           {
             "word": "toward",
-            "start": 12.945,
-            "end": 13.247
+            "start": 14.323,
+            "end": 14.648
           },
           {
             "word": "the",
-            "start": 13.282,
-            "end": 13.351
+            "start": 14.683,
+            "end": 14.753
           },
           {
             "word": "reef.",
-            "start": 13.41,
-            "end": 13.99
+            "start": 14.834,
+            "end": 15.426
           }
         ]
       },
@@ -355,8 +355,8 @@
       "clip": "work/clips/04.mp4",
       "clipSeconds": 5,
       "sfxFile": "work/sfx/04.mp3",
-      "from": 10.658,
-      "dur": 3.9939999999999998,
+      "from": 11.931,
+      "dur": 4.157000000000002,
       "seg": "work/seg/04.mp4"
     },
     {
@@ -385,59 +385,59 @@
       },
       "image": "work/shots/05.jpg",
       "voice": {
-        "start": 14.652,
-        "end": 17.996,
+        "start": 16.088,
+        "end": 19.234,
         "words": [
           {
             "word": "Forty",
-            "start": 14.652,
-            "end": 14.977
+            "start": 16.088,
+            "end": 16.424
           },
           {
             "word": "years",
-            "start": 15.035,
-            "end": 15.29
+            "start": 16.506,
+            "end": 16.761000000000003
           },
           {
             "word": "of",
-            "start": 15.348,
-            "end": 15.418
+            "start": 16.819000000000003,
+            "end": 16.889000000000003
           },
           {
             "word": "nights",
-            "start": 15.523,
-            "end": 15.929
+            "start": 16.993000000000002,
+            "end": 17.388
           },
           {
             "word": "stared",
-            "start": 16.115,
-            "end": 16.521
+            "start": 17.528000000000002,
+            "end": 17.899
           },
           {
             "word": "back",
-            "start": 16.568,
-            "end": 16.823
+            "start": 17.946,
+            "end": 18.19
           },
           {
             "word": "from",
-            "start": 16.904,
-            "end": 17.044
+            "start": 18.271,
+            "end": 18.41
           },
           {
             "word": "his",
-            "start": 17.09,
-            "end": 17.183
+            "start": 18.457,
+            "end": 18.549000000000003
           },
           {
             "word": "ledger.",
-            "start": 17.264,
-            "end": 17.996
+            "start": 18.608,
+            "end": 19.234
           }
         ]
       },
       "sfxFile": "work/sfx/05.mp3",
-      "from": 14.652,
-      "dur": 3.820000000000002,
+      "from": 16.088,
+      "dur": 3.622,
       "seg": "work/seg/05.mp4"
     },
     {
@@ -466,34 +466,34 @@
       },
       "image": "work/shots/06.jpg",
       "voice": {
-        "start": 18.472,
-        "end": 20.19,
+        "start": 19.71,
+        "end": 21.336000000000002,
         "words": [
           {
             "word": "Thunder",
-            "start": 18.472,
-            "end": 18.948
+            "start": 19.71,
+            "end": 20.163
           },
           {
             "word": "shook",
-            "start": 19.075,
-            "end": 19.331
+            "start": 20.326,
+            "end": 20.581000000000003
           },
           {
             "word": "the",
-            "start": 19.377,
-            "end": 19.447
+            "start": 20.628,
+            "end": 20.697000000000003
           },
           {
             "word": "tower.",
-            "start": 19.493,
-            "end": 20.19
+            "start": 20.744,
+            "end": 21.336000000000002
           }
         ]
       },
       "sfxFile": "work/sfx/06.mp3",
-      "from": 18.472,
-      "dur": 2.193999999999999,
+      "from": 19.71,
+      "dur": 2.2880000000000003,
       "seg": "work/seg/06.mp4"
     },
     {
@@ -522,44 +522,44 @@
         "attempts": 1
       },
       "voice": {
-        "start": 20.666,
-        "end": 23.243,
+        "start": 21.998,
+        "end": 25.295,
         "words": [
           {
             "word": "Lightning",
-            "start": 20.666,
-            "end": 21.072
+            "start": 21.998,
+            "end": 22.462
           },
           {
             "word": "struck;",
-            "start": 21.165,
-            "end": 21.757
+            "start": 22.567,
+            "end": 23.182000000000002
           },
           {
             "word": "the",
-            "start": 21.943,
-            "end": 22.036
+            "start": 23.937,
+            "end": 24.029
           },
           {
             "word": "machine",
-            "start": 22.082,
-            "end": 22.419
+            "start": 24.076,
+            "end": 24.436
           },
           {
             "word": "went",
-            "start": 22.454,
-            "end": 22.628
+            "start": 24.471,
+            "end": 24.656000000000002
           },
           {
             "word": "dark.",
-            "start": 22.686,
-            "end": 23.243
+            "start": 24.714000000000002,
+            "end": 25.295
           }
         ]
       },
       "sfxFile": "work/sfx/07.mp3",
-      "from": 20.666,
-      "dur": 3.134999999999998,
+      "from": 21.998,
+      "dur": 3.7729999999999997,
       "seg": "work/seg/07.mp4"
     },
     {
@@ -586,53 +586,53 @@
       },
       "image": "work/shots/08.jpg",
       "voice": {
-        "start": 23.801,
-        "end": 27.121,
+        "start": 25.771,
+        "end": 29.254,
         "words": [
           {
             "word": "Silas",
-            "start": 23.801,
-            "end": 24.323
+            "start": 25.771,
+            "end": 26.409000000000002
           },
           {
             "word": "struck",
-            "start": 24.369,
-            "end": 24.613
+            "start": 26.572000000000003,
+            "end": 26.839000000000002
           },
           {
             "word": "a",
-            "start": 24.66,
-            "end": 24.683
+            "start": 26.897000000000002,
+            "end": 26.92
           },
           {
             "word": "match,",
-            "start": 24.741,
-            "end": 25.147
+            "start": 26.978,
+            "end": 27.373
           },
           {
             "word": "and",
-            "start": 25.182,
-            "end": 25.298
+            "start": 27.396,
+            "end": 27.512
           },
           {
             "word": "the",
-            "start": 25.345,
-            "end": 25.414
+            "start": 27.559,
+            "end": 27.628
           },
           {
             "word": "old",
-            "start": 25.472,
-            "end": 25.623
+            "start": 27.687,
+            "end": 27.849
           },
           {
             "word": "flame",
-            "start": 25.681,
-            "end": 26.041
+            "start": 27.896,
+            "end": 28.244
           },
           {
             "word": "answered.",
-            "start": 26.123,
-            "end": 27.121
+            "start": 28.325000000000003,
+            "end": 29.254
           }
         ]
       },
@@ -640,8 +640,8 @@
       "clip": "work/clips/08.mp4",
       "clipSeconds": 5,
       "sfxFile": "work/sfx/08.mp3",
-      "from": 23.801,
-      "dur": 4.920000000000002,
+      "from": 25.771,
+      "dur": 5.083000000000002,
       "seg": "work/seg/08.mp4"
     }
   ],
@@ -654,8 +654,9 @@
   },
   "narration": {
     "file": "work/narration.mp3",
-    "seconds": 27.121,
-    "words": 67
+    "seconds": 29.254,
+    "words": 67,
+    "leadIn": 0.6
   },
   "mix": "work/mix.m4a"
 }

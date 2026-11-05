@@ -34,7 +34,7 @@ async function sfx(text, seconds, file) {
   return file;
 }
 
-const total = story.narration.seconds + 1.5;
+const total = story.narration.seconds + 1.6;
 
 // one ambience bed under the whole film, from the story's own mood
 const bedFile = path.join(dir, 'sfx', 'bed.mp3');
@@ -56,20 +56,34 @@ for (const shot of story.shots) {
 }
 
 // ── mix: narration on top, bed under, effects at their own shot times ───────
+const lead = story.narration.leadIn ?? 0;
 const inputs = ['-i', story.narration.file, '-stream_loop', '-1', '-i', bedFile];
-const parts = ['[0:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=1.0[v]',
-               `[1:a]aformat=sample_rates=44100:channel_layouts=stereo,atrim=0:${total},volume=0.18[b]`];
+
+// The voice is delayed by the lead-in and split: one copy is heard, the other
+// keys a compressor on the effects bus, so effects pull back whenever a word
+// lands instead of fighting it.
+const leadMs = Math.round(lead * 1000);
+const parts = [
+  // Generated audio comes back anywhere from -20 to -55 dB, so every stem is
+  // normalised to a target level first. Fixed gains cannot work across that spread.
+  `[0:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-16:TP=-1.5,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,adelay=${leadMs}|${leadMs},asplit=2[v][key]`,
+  `[1:a]aformat=sample_rates=44100:channel_layouts=stereo,atrim=0:${total},loudnorm=I=-31:TP=-3,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,afade=t=in:st=0:d=0.8[b]`,
+];
 let n = 2;
-const mixLabels = ['[v]', '[b]'];
+const busLabels = ['[b]'];
 for (const shot of story.shots) {
   if (!shot.sfxFile) continue;
   inputs.push('-i', shot.sfxFile);
-  const delay = Math.round((shot.voice?.start ?? 0) * 1000);
-  parts.push(`[${n}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=0.3,adelay=${delay}|${delay}[s${n}]`);
-  mixLabels.push(`[s${n}]`);
+  // an effect starts a touch BEFORE its shot's first word and fades up into it
+  const at = Math.max(0, (shot.voice?.start ?? 0) - 0.25);
+  const delay = Math.round(at * 1000);
+  parts.push(`[${n}:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-27:TP=-3,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,afade=t=in:st=0:d=0.45,adelay=${delay}|${delay}[s${n}]`);
+  busLabels.push(`[s${n}]`);
   n++;
 }
-parts.push(`${mixLabels.join('')}amix=inputs=${mixLabels.length}:duration=longest:normalize=0,alimiter=limit=0.95,atrim=0:${total}[out]`);
+parts.push(`${busLabels.join('')}amix=inputs=${busLabels.length}:duration=longest:normalize=0[bus]`);
+parts.push(`[bus][key]sidechaincompress=threshold=0.03:ratio=12:attack=15:release=320:makeup=1[ducked]`);
+parts.push(`[v][ducked]amix=inputs=2:duration=longest:normalize=0,alimiter=limit=0.95,atrim=0:${total}[out]`);
 
 const mix = path.join(dir, 'mix.m4a');
 execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...inputs,

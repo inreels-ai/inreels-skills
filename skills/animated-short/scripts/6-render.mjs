@@ -29,7 +29,7 @@ fs.mkdirSync(path.join(dir, 'seg'), { recursive: true });
 // ── each shot holds for its own sentence ───────────────────────────────────
 const shots = story.shots;
 for (let i = 0; i < shots.length; i++) {
-  const start = shots[i].voice.start;
+  const start = i === 0 ? 0 : shots[i].voice.start; // shot 1 covers the lead-in
   const end = i + 1 < shots.length ? shots[i + 1].voice.start : story.narration.seconds + TAIL;
   shots[i].from = start;
   shots[i].dur = Math.max(1.2, end - start);

@@ -21,6 +21,9 @@ const dir = args.dir ?? 'work';
 const storyPath = args.story ?? path.join(dir, 'story.json');
 const story = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
 const voice = args.voice ?? 'e5WNhrdI30aXpS2RSGm1';
+// The film opens on picture and sound before anyone speaks. Every timing below
+// carries this offset, so the mix and the cut stay in sync with it for free.
+const LEAD_IN = Number(args.leadIn ?? 0.6);
 
 const script = story.shots.map((s) => s.narration.trim()).join(' ');
 
@@ -52,6 +55,7 @@ a.characters.forEach((ch, i) => {
   cur.end = end;
 });
 if (cur) words.push(cur);
+for (const w of words) { w.start += LEAD_IN; w.end += LEAD_IN; }
 
 // hand each shot the span of its own sentence
 let w = 0;
@@ -61,7 +65,7 @@ for (const shot of story.shots) {
   shot.voice = { start: span[0]?.start ?? 0, end: span[span.length - 1]?.end ?? 0, words: span };
   w += n;
 }
-story.narration = { file: mp3, seconds: words[words.length - 1].end, words: words.length };
+story.narration = { file: mp3, seconds: words[words.length - 1].end, words: words.length, leadIn: LEAD_IN };
 fs.writeFileSync(storyPath, JSON.stringify(story, null, 2));
 
 console.log(`narration ${story.narration.seconds.toFixed(1)}s, ${words.length} words -> ${mp3}`);
