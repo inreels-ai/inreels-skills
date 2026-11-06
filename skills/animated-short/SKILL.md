@@ -51,7 +51,9 @@ Rules that decide whether the film works:
   Write it literally into that shot's `visual`, because models default to
   vague and metaphorical.
 - **One style string**, used verbatim in every image prompt. Medium, light,
-  palette.
+  palette. Seven tested ones are in [`styles/`](styles/) — copy one rather than
+  inventing a string, and probe any new style with a single image before
+  committing a film to it.
 - **Every character gets a locked `look`** — face, hair, clothing colours,
   signature prop. This is what stops the hero changing face between shots.
 - **Describe what IS, never what is not.** "Its lens is black and empty" works;
@@ -142,6 +144,21 @@ before you spend it.
 - **Narration that reads the picture aloud.** Say what the image cannot.
 - **Skipping the user's yes.** They will want a different ending, and they will
   want it before you have paid for eight images.
+
+## Styles
+
+[`styles/`](styles/) holds a pack per visual style: noir painterly, ink wash,
+watercolour, cartoon explainer, paper collage, papercraft and low poly. Each is
+a proven string plus what it suits and where it breaks.
+
+The pipeline is style-agnostic — the string is the only thing that changes — so
+adding a style is a file, not code.
+
+One rule worth knowing before you write your own: styles that are **painting
+techniques** land from a plain description, while styles that are a **physical
+medium or a render engine** need the texture named, a counted palette, and an
+explicit statement of what the medium is not. `styles/README.md` explains why,
+and why that does not contradict the no-negations rule above.
 
 ## Series
 

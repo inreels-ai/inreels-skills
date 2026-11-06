@@ -96,16 +96,20 @@ async function animate(shot, seconds, startUrl) {
     }),
   });
   if (!submit.ok) throw new Error(`kling submit ${submit.status}: ${(await submit.text()).slice(0, 300)}`);
-  const { request_id } = await submit.json();
-  const base = `https://queue.fal.run/${MODEL}/requests/${request_id}`;
+  // Poll the URLs fal hands back. The queue lives under the model FAMILY
+  // (fal-ai/kling-video/requests/<id>), not the full variant path, so building
+  // the URL from MODEL 404s with an empty body.
+  const queued = await submit.json();
+  const statusUrl = queued.status_url ?? `${queued.response_url}/status`;
+  const resultUrl = queued.response_url;
   const deadline = Date.now() + 12 * 60_000;
   for (;;) {
     await sleep(6000);
-    const st = await (await fetch(`${base}/status`, { headers: { Authorization: `Key ${key}` } })).json();
+    const st = await (await fetch(statusUrl, { headers: { Authorization: `Key ${key}` } })).json();
     if (st.status === 'COMPLETED') break;
     if (Date.now() > deadline) throw new Error(`kling timed out on shot ${shot.index}`);
   }
-  const res = await (await fetch(base, { headers: { Authorization: `Key ${key}` } })).json();
+  const res = await (await fetch(resultUrl, { headers: { Authorization: `Key ${key}` } })).json();
   const url = res?.video?.url;
   if (!url) throw new Error(`kling returned no video for shot ${shot.index}`);
   return url;
