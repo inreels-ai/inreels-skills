@@ -17,6 +17,11 @@ that reads well and renders badly.
 | [paper-collage](paper-collage.md) | cut magazine + halftone | editorial explainers, data |
 | [papercraft](papercraft.md) | real layered construction paper | whimsy, children's stories |
 | [low-poly](low-poly.md) | PS1-era real-time 3D | retro, gaming, internet culture |
+| [claymation](claymation.md) | plasticine on a miniature set | character comedy, handmade feel |
+| [crochet-yarn](crochet-yarn.md) | amigurumi wool | cosy, kids, craft niches |
+| [felt-diorama](felt-diorama.md) | stitched felt layers | bedtime stories, seasonal |
+| [pixar-3d](pixar-3d.md) | animated feature | family stories, mascots, brand |
+| [ultra-realistic](ultra-realistic.md) | photographed | documentary, travel, premium product |
 
 ## Writing a new pack
 
@@ -30,6 +35,10 @@ string carries three things:
    "texture warping".
 2. **A tight, counted palette** — "six flat paper colours", "256-colour".
 3. **What the medium is not** — "not painted, no gradients, no anti-aliasing".
+
+A **render look** (feature 3D, photoreal) is the exception — it needs no
+negative clause, because naming the lighting and the lens carries it. For
+photoreal, a lens and aperture beat any adjective about realism.
 
 That last one looks like it contradicts the rule in SKILL.md about never
 describing what is absent. It does not, and the distinction matters:
