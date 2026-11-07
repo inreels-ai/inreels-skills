@@ -129,8 +129,33 @@ node scripts/2-images.mjs --only 7 --fix "the sponge is soaked and foaming" --di
 brand name is required and checked by eye against the spelling you gave. This
 is the one place an image model is allowed to write.
 
-**Motion.** Spend clips on the beat and the payoff. A montage cut is three
-frames long — animating it is money nobody sees, and the validator warns you.
+**Motion.** Two modes.
+
+```bash
+node scripts/4-motion.mjs --story work/ad.json --dir work --count 3   # the big beats
+node scripts/4-motion.mjs --story work/ad.json --dir work --full      # everything that can move
+```
+
+`--full` animates every shot of 0.6s or more that has a `motionPrompt`.
+Stop-motion is supposed to move, and a still clay frame reads as a photograph
+of a puppet rather than a puppet, so for this format `--full` is usually worth
+the money. It costs about $3 more.
+
+Two things it will not animate, both deliberate:
+
+- **Montage cuts.** Three frames is below the threshold where anyone perceives
+  movement. The money is invisible.
+- **The pack.** Image-to-video models erode printed text across a clip. Our
+  hero shot began as "Lifts mud in one wash" and ended as "Lifte nod lo ore
+  wash" — on the one frame the whole ad exists for. Broadcast locks off the
+  beauty shot for exactly this reason. `--motionPack` overrides it if you want
+  to try; check the last frame, not the first.
+
+If you swap the motion backend, note that the look-lock and the negative
+prompt are chosen per shot: a macro insert is told to stay photographic and is
+NOT given `photorealistic` as a negative, and a pack shot is allowed lettering
+while being told not to warp or misspell it. A single global negative list
+fights the format in both directions.
 
 ### 4. Hand it over
 
@@ -144,6 +169,7 @@ A 26s spot with 3 animated shots:
 pack + sheets + ~25 shots + repaints   ~$1.20
 voiceover                              ~$0.02
 3 motion clips                         ~$1.26
+  (or --full, 5 clips, ~$2.94)
 ambience + effects                     ~$0.10
                                        ───────
                                         ~$2.60
@@ -160,6 +186,8 @@ All stills is about **$1.30**. Say the number before you spend it.
   card, and the one frame the ad exists for is the one that looks fake.
 - **Letters anywhere but the pack.** Invented lettering is the clearest tell
   there is.
+- **Animating the pack.** The brand name degrades over the clip. Check the LAST
+  frame of any shot you animate, never the first.
 - **Talking over the end card.** Let the tagline land in silence.
 
 ## Styles

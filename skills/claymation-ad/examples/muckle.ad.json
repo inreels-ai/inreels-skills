@@ -94,7 +94,10 @@
       "sfxFile": "work/sfx/02.mp3",
       "from": 1.2,
       "dur": 1,
-      "seg": "work/seg/02.mp4"
+      "seg": "work/seg/02.mp4",
+      "motionSkipped": true,
+      "clip": "work/clips/02.mp4",
+      "clipSeconds": 5
     },
     {
       "index": 3,
@@ -122,7 +125,11 @@
       },
       "from": 2.2,
       "dur": 0.7,
-      "seg": "work/seg/03.mp4"
+      "seg": "work/seg/03.mp4",
+      "motionPrompt": "A thin trickle of muddy water seeps out of the tread marks and spreads slowly across the tile.",
+      "motionSkipped": true,
+      "clip": "work/clips/03.mp4",
+      "clipSeconds": 5
     },
     {
       "index": 4,
@@ -536,7 +543,9 @@
       "sfxFile": "work/sfx/17.mp3",
       "from": 14.7,
       "dur": 1.8,
-      "seg": "work/seg/17.mp4"
+      "seg": "work/seg/17.mp4",
+      "motionPrompt": "The suspended water droplets drift slowly downward and the radial light behind the pack brightens a little and settles. The pack itself stays perfectly still, the same shape and colours, its printed name unchanged.",
+      "motionSkipped": true
     },
     {
       "index": 18,
@@ -567,7 +576,9 @@
       "sfxFile": "work/sfx/18.mp3",
       "from": 16.5,
       "dur": 2.6,
-      "seg": "work/seg/18.mp4"
+      "seg": "work/seg/18.mp4",
+      "motionPrompt": "The sheet of water ripples outward and the white splash behind the pack rises and falls back in slow motion. The pack itself stays perfectly still, the same shape and colours, its printed name unchanged.",
+      "motionSkipped": true
     }
   ],
   "narration": {
