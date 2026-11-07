@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, need } from './lib/env.mjs';
+import * as inreels from './lib/inreels.mjs';
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), [])
@@ -23,7 +24,23 @@ const storyPath = args.story ?? path.join(dir, 'story.json');
 const story = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
 fs.mkdirSync(path.join(dir, 'sfx'), { recursive: true });
 
+// elevenlabs = your own key. inreels = the same two ElevenLabs endpoints
+// behind one account, billed in credits — an effect is 1 credit, a music bed
+// 1 per 15s. This is the last step that forced a second key.
+const SOUND_PROVIDER = process.env.SOUND_PROVIDER || 'elevenlabs';
+
 async function sfx(text, seconds, file) {
+  if (SOUND_PROVIDER === 'inreels') {
+    // The effect model stops at 22s, which is also what the bed asks for, so
+    // nothing here needs the music model — ambience under a 30s film is one
+    // 22s effect looped by the mixer, not a scored cue.
+    const { url } = await inreels.generateSound({
+      prompt: text,
+      seconds: Math.min(22, Math.max(1, Math.round(seconds))),
+    });
+    fs.writeFileSync(file, Buffer.from(await (await fetch(url)).arrayBuffer()));
+    return file;
+  }
   const res = await fetch('https://api.elevenlabs.io/v1/sound-generation', {
     method: 'POST',
     headers: { 'xi-api-key': need('ELEVENLABS_API_KEY'), 'content-type': 'application/json' },

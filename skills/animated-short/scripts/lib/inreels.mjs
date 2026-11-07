@@ -129,5 +129,25 @@ export async function generateSpeech({ text, voiceId, model }) {
   return { url, words: run.words ?? null, seconds: run.duration_seconds ?? null };
 }
 
+/**
+ * A sound effect or a music bed.
+ *
+ * `kind: 'music'` switches models: effects run 1-22s, music 10-300s and
+ * instrumental by default so it sits under a voice. Out-of-range lengths are
+ * rejected rather than clamped, so check the range before asking.
+ */
+export async function generateSound({ prompt, seconds, kind, instrumental }) {
+  const { run_id } = await call('generate_sound', {
+    prompt,
+    ...(seconds ? { seconds } : {}),
+    ...(kind ? { kind } : {}),
+    ...(instrumental === false ? { instrumental: false } : {}),
+  });
+  const run = await finish(run_id, { timeoutMs: 5 * 60_000 });
+  const url = run.url ?? run.output_url;
+  if (!url) throw new Error(`sound run ${run_id} completed with no url`);
+  return { url, seconds: run.duration_seconds ?? null };
+}
+
 /** What a call will cost, charging nothing. */
 export const quote = (body) => call('quote', body);
