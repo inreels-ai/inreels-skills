@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { loadEnv } from './lib/env.mjs';
 import { visionJSON } from './lib/llm.mjs';
-import { nanoBanana, download, dataUri, b64 } from './lib/images.mjs';
+import { paint, download, b64 } from './lib/images.mjs';
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), [])
@@ -41,7 +41,7 @@ for (const c of ad.characters ?? []) {
   if (fs.existsSync(file)) { c.sheet = file; continue; }
   const prompt = `Character model sheet for a stop-motion commercial: ${c.name}, ${c.role}. ${c.look} Three views of the SAME character side by side on a plain light warm-grey background: full-body front view, full-body three-quarter view, and a large head-and-shoulders close-up. Neutral standing pose, consistent proportions, identical colours and clothing in every view, even soft light, no scenery, no text, no labels, no captions. Style: ${ad.looks.clay}`;
   console.log(`sheet: ${c.name}`);
-  c.sheet = await download(await nanoBanana(prompt, [], '16:9'), file);
+  c.sheet = await download(await paint(prompt, [], '16:9'), file);
 }
 
 // ── the pack, painted once and reused as a reference everywhere it appears ─
@@ -49,7 +49,7 @@ const packFile = path.join(dir, 'pack.jpg');
 if (!fs.existsSync(packFile)) {
   const prompt = `Product packaging shot on a plain neutral light-grey background, centred, filling most of the frame, lit evenly with soft studio light: ${ad.product.pack} The brand name "${ad.brand}" is printed on the front of the pack in large clear bold letters, spelled exactly "${ad.brand}"${ad.product.claim ? `, with the smaller line "${ad.product.claim}" beneath it, spelled exactly` : ''}. Crisp commercial product photography, sharp focus, no hands, no people, no extra packs, no shelf, no background scenery.`;
   console.log('pack shot');
-  await download(await nanoBanana(prompt, [], '1:1'), packFile);
+  await download(await paint(prompt, [], '1:1'), packFile);
 }
 ad.product.sheet = packFile;
 
@@ -58,10 +58,10 @@ function shotPrompt(shot, fix) {
   const chars = (ad.characters ?? []).filter((c) => (shot.characters ?? []).includes(c.name) && c.sheet);
   const refs = chars.map((c, i) =>
     `Image ${i + 1} is the character reference for ${c.name}: keep ${c.name}'s face, design, clothing and colours exactly the same (${c.look}); ignore its layout, panels and background.`);
-  const images = chars.map((c) => dataUri(c.sheet));
+  const images = chars.map((c) => c.sheet);
   if (packShot(shot)) {
     refs.push(`Image ${images.length + 1} is the product pack: reproduce it exactly — same shape, same colours, same artwork, and the brand name spelled exactly "${ad.brand}".`);
-    images.push(dataUri(packFile));
+    images.push(packFile);
   }
   const lettering = packShot(shot)
     ? `The only letters anywhere in the frame are the ones printed on the product pack itself.`
@@ -74,7 +74,14 @@ function shotPrompt(shot, fix) {
 
 const QC_SYSTEM = `You are the quality supervisor on a stop-motion television commercial. You get the reference images first (character sheets, and the product pack where it appears), then ONE painted frame (the LAST image) to judge. Be strict about real, visible flaws a viewer would notice; do not nitpick style.`;
 
+const QC_ON = !!process.env.CLAUDE_API_KEY;
+let qcWarned = false;
+
 async function qc(shot, frameFile, chars) {
+  if (!QC_ON) {
+    if (!qcWarned) { qcWarned = true; console.log('  note  no CLAUDE_API_KEY — painting without the vision check. Look at the frames yourself.'); }
+    return { pass: true, flaws: [], fix: '', focus: { x: 0.5, y: 0.45 } };
+  }
   const refs = [...chars.map((c) => b64(c.sheet)), ...(packShot(shot) ? [b64(packFile)] : [])];
   const user = `${refs.length ? `The first ${refs.length} image(s) are references. ` : ''}The LAST image is the frame to judge.
 Shot brief (${shot.type}, ${shot.movement}): ${shot.visual}
@@ -109,7 +116,7 @@ for (const shot of ad.shots) {
   if (!only && fs.existsSync(file) && shot.qc?.pass) continue;
 
   const { prompt, chars, images } = shotPrompt(shot, args.fix);
-  await download(await nanoBanana(prompt, images, '9:16'), file);
+  await download(await paint(prompt, images, '9:16'), file);
   spent += 0.039;
 
   let verdict = await qc(shot, file, chars);
@@ -117,7 +124,7 @@ for (const shot of ad.shots) {
     console.log(`  ${shot.index}: ${verdict.flaws.join('; ')} — repainting once`);
     const retry = shotPrompt(shot, verdict.fix);
     const alt = file.replace('.jpg', '-b.jpg');
-    await download(await nanoBanana(retry.prompt, retry.images, '9:16'), alt);
+    await download(await paint(retry.prompt, retry.images, '9:16'), alt);
     spent += 0.039;
     const second = await qc(shot, alt, chars);
     if (second.pass || second.flaws.length < verdict.flaws.length) {

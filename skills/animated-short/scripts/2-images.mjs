@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { loadEnv } from './lib/env.mjs';
 import { visionJSON } from './lib/llm.mjs';
-import { nanoBanana, download, dataUri, b64 } from './lib/images.mjs';
+import { paint, download, b64 } from './lib/images.mjs';
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), [])
@@ -32,7 +32,7 @@ for (const c of story.characters) {
   if (fs.existsSync(file)) { c.sheet = file; continue; }
   const prompt = `Character model sheet for an animated film: ${c.name}, ${c.role}. ${c.look}. Three views of the SAME character side by side on a plain light warm-grey background: full-body front view, full-body three-quarter view, and a large head-and-shoulders close-up. Neutral standing pose, consistent proportions, identical colours and clothing in every view, even soft light, no scenery, no text, no labels, no captions. Style: ${story.style}.`;
   console.log(`sheet: ${c.name}`);
-  c.sheet = await download(await nanoBanana(prompt, [], '16:9'), file);
+  c.sheet = await download(await paint(prompt, [], '16:9'), file);
 }
 
 // ── one prompt per shot, characters bound to their sheets by position ───────
@@ -49,7 +49,21 @@ function shotPrompt(shot, fix) {
 
 const QC_SYSTEM = `You are the continuity and quality supervisor on an animated short. You get the character reference sheets first (if any), then ONE painted frame (the LAST image) to judge. Be strict about real, visible flaws a viewer would notice; do not nitpick style.`;
 
+// The vision check is the only step that needs an Anthropic key, whichever
+// image backend is in use. It is worth having — it catches borders, invented
+// lettering and a hero whose face changed — but it is not worth losing a frame
+// you already paid for, so without a key it stands down instead of throwing.
+const QC_ON = !!process.env.CLAUDE_API_KEY;
+let qcWarned = false;
+
 async function qc(shot, frameFile, chars) {
+  if (!QC_ON) {
+    if (!qcWarned) {
+      qcWarned = true;
+      console.log('  note  no CLAUDE_API_KEY — painting without the vision check. Look at the frames yourself.');
+    }
+    return { pass: true, flaws: [], fix: '', focus: { x: 0.5, y: 0.45 } };
+  }
   const user = `${chars.length ? `The first ${chars.length} image(s) are the reference sheets for: ${chars.map((c) => c.name).join(', ')}. ` : ''}The LAST image is the frame to judge.
 Shot brief (${shot.type}): ${shot.visual}
 Characters that should appear: ${shot.characters.join(', ') || 'none'}
@@ -84,7 +98,7 @@ for (const shot of story.shots) {
   if (!only && fs.existsSync(file) && shot.qc?.pass) continue;
 
   const { prompt, chars } = shotPrompt(shot, args.fix);
-  await download(await nanoBanana(prompt, chars.map((c) => dataUri(c.sheet)), '9:16'), file);
+  await download(await paint(prompt, chars.map((c) => c.sheet), '9:16'), file);
   spent += 0.039;
 
   let verdict = await qc(shot, file, chars);
@@ -92,7 +106,7 @@ for (const shot of story.shots) {
     console.log(`  ${shot.index}: ${verdict.flaws.join('; ')} — repainting once`);
     const retry = shotPrompt(shot, verdict.fix);
     const alt = file.replace('.jpg', '-b.jpg');
-    await download(await nanoBanana(retry.prompt, chars.map((c) => dataUri(c.sheet)), '9:16'), alt);
+    await download(await paint(retry.prompt, chars.map((c) => c.sheet), '9:16'), alt);
     spent += 0.039;
     const second = await qc(shot, alt, chars);
     // keep the better of the two

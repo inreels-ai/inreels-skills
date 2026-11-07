@@ -3,6 +3,11 @@
 // Swap PROVIDER to use something else; the rest of the pipeline is unchanged.
 import fs from 'node:fs';
 import { need } from './env.mjs';
+import * as inreels from './inreels.mjs';
+
+// replicate = your own Replicate key. inreels = one inReels account for
+// everything, billed in credits. The pipeline above this line is identical.
+const PROVIDER = process.env.IMAGE_PROVIDER || 'replicate';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -41,6 +46,28 @@ export async function nanoBanana(prompt, refs, aspect = '9:16') {
     }
     return Array.isArray(j.output) ? j.output[0] : j.output;
   }
+}
+
+// References cross the wire differently per backend: Replicate takes a data:
+// URI inline, inReels takes a URL and so needs the file uploaded first. Upload
+// is free but not instant, and a character sheet is referenced by every shot,
+// so each file is uploaded once and remembered.
+const uploaded = new Map();
+
+/**
+ * Paint one frame. Takes reference FILE PATHS, not encoded references, which is
+ * what lets the two backends differ underneath without step 2 knowing.
+ */
+export async function paint(prompt, refFiles = [], aspect = '9:16') {
+  if (PROVIDER === 'inreels') {
+    const urls = [];
+    for (const file of refFiles) {
+      if (!uploaded.has(file)) uploaded.set(file, await inreels.uploadImage(file));
+      urls.push(uploaded.get(file));
+    }
+    return inreels.generateImage(prompt, urls, aspect);
+  }
+  return nanoBanana(prompt, refFiles.map(dataUri), aspect);
 }
 
 export async function download(url, file) {

@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadEnv, need } from './lib/env.mjs';
+import * as inreels from './lib/inreels.mjs';
 import { download, dataUri } from './lib/images.mjs';
 
 const args = Object.fromEntries(
@@ -22,6 +23,9 @@ loadEnv(args.env);
 // Two interchangeable motion backends. --provider replicate needs no file
 // upload (it takes a data: URI), so it is the simpler one to start with.
 const PROVIDER = process.env.MOTION_PROVIDER || 'fal';
+// On the inReels path the model is named rather than hard-coded. Seedance mini
+// is the cheapest that holds a stop-motion look, at 3 credits per 5s.
+const INREELS_MODEL = process.env.INREELS_MOTION_MODEL || 'seedance-2.0-mini-frames';
 const MODEL = 'fal-ai/kling-video/v3/standard/image-to-video';
 const REPLICATE_MODEL = process.env.REPLICATE_MOTION_MODEL || 'wan-video/wan-2.5-i2v';
 const USD_PER_SEC = 0.084;
@@ -50,7 +54,9 @@ const dir = args.dir ?? 'work';
 const storyPath = args.story ?? path.join(dir, 'story.json');
 const story = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
 const count = Number(args.count ?? 3);
-const key = need('FAL_KEY');
+// Only fal needs this. Requiring it eagerly broke the other backends at
+// import time for a key they never use.
+const key = PROVIDER === 'fal' ? need('FAL_KEY') : null;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 fs.mkdirSync(path.join(dir, 'clips'), { recursive: true });
 
@@ -191,9 +197,17 @@ for (const shot of story.shots) {
   const seconds = held > 6.5 ? 10 : 5;
   try {
     const url =
-      PROVIDER === 'replicate'
-        ? await animateReplicate(shot, seconds)
-        : await animate(shot, seconds, await uploadToFal(shot.image));
+      PROVIDER === 'inreels'
+        ? await inreels.generateVideo({
+            model: INREELS_MODEL,
+            prompt: `${shot.motionPrompt} ${keepLook(shot)}`,
+            imageUrl: await inreels.uploadImage(shot.image),
+            seconds,
+            negativePrompt: negativeFor(shot),
+          })
+        : PROVIDER === 'replicate'
+          ? await animateReplicate(shot, seconds)
+          : await animate(shot, seconds, await uploadToFal(shot.image));
     await download(url, out);
     shot.clip = out;
     shot.clipSeconds = seconds;

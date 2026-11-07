@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadEnv, need } from './lib/env.mjs';
+import * as inreels from './lib/inreels.mjs';
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), [])
@@ -25,7 +26,10 @@ loadEnv(args.env);
 const dir = args.dir ?? 'work';
 const adPath = args.ad ?? path.join(dir, 'ad.json');
 const ad = JSON.parse(fs.readFileSync(adPath, 'utf8'));
-const voice = args.voice ?? ad.voiceId ?? 'CwhRBWXzGAHq8TQ4Fs17';
+const VOICE_PROVIDER = process.env.VOICE_PROVIDER || 'elevenlabs';
+// inReels voices are named slugs; ElevenLabs ids are rejected there and the
+// reverse, so the default has to follow the backend.
+const voice = args.voice ?? ad.voiceId ?? (VOICE_PROVIDER === 'inreels' ? 'allison-millennial' : 'CwhRBWXzGAHq8TQ4Fs17');
 // Ads open on picture and sound. The voice comes in a beat later, once the
 // viewer has seen the problem.
 const VO_AT = Number(args.voAt ?? ad.voStartsAt ?? 0.5);
@@ -42,6 +46,13 @@ const total = t;
 const mp3 = path.join(dir, 'vo.mp3');
 let words = 0;
 if ((ad.vo ?? '').trim()) {
+  if (VOICE_PROVIDER === 'inreels') {
+    const { url, seconds } = await inreels.generateSpeech({ text: ad.vo.trim(), voiceId: voice });
+    fs.writeFileSync(mp3, Buffer.from(await (await fetch(url)).arrayBuffer()));
+    words = ad.vo.trim().split(/\s+/).length;
+    if (seconds && VO_AT + seconds > total)
+      console.log(`  warn  the read runs ${(VO_AT + seconds).toFixed(1)}s but the ad is ${total.toFixed(1)}s — it will be cut off.`);
+  } else {
   const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps`, {
     method: 'POST',
     headers: { 'xi-api-key': need('ELEVENLABS_API_KEY'), 'content-type': 'application/json' },
@@ -60,6 +71,7 @@ if ((ad.vo ?? '').trim()) {
   words = ad.vo.trim().split(/\s+/).length;
   if (VO_AT + spoken > total)
     console.log(`  warn  the read runs ${(VO_AT + spoken).toFixed(1)}s but the ad is ${total.toFixed(1)}s — it will be cut off.`);
+  }
 } else {
   // A music-only ad is a real choice; give the mixer silence to sit under.
   fs.writeFileSync(mp3, Buffer.alloc(0));

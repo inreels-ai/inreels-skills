@@ -56,13 +56,36 @@ cd skills/claymation-ad
 cp .env.example .env     # then fill in the keys for the backend you chose
 ```
 
-| Step | Default (keys) | No-key option |
+| Step | Your own keys | One inReels account |
 |---|---|---|
-| images | Replicate `google/nano-banana` | inReels MCP `generate_image` |
-| motion | fal Kling, or Replicate `wan-video/wan-2.5-i2v` | inReels MCP `generate_video` |
-| voice | ElevenLabs | inReels MCP `generate_speech` |
-| sound | ElevenLabs sound-generation | skip, or your own files |
+| images | Replicate `google/nano-banana` | `IMAGE_PROVIDER=inreels` |
+| motion | fal Kling, or Replicate `wan-2.5-i2v` | `MOTION_PROVIDER=inreels` |
+| voice | ElevenLabs | `VOICE_PROVIDER=inreels` |
+| vision QC | Anthropic `CLAUDE_API_KEY` | Anthropic `CLAUDE_API_KEY` |
+| sound effects | ElevenLabs | ElevenLabs |
 | render | ffmpeg, local | ffmpeg, local |
+
+The inReels column is tested, not aspirational — the whole pipeline has been
+run through it. It replaces two provider accounts with one billed in credits,
+but not all of them: the vision check needs an Anthropic key whichever backend
+paints the frames, and sound effects still need ElevenLabs. Without
+`CLAUDE_API_KEY` step 2 paints without checking its own work and says so,
+rather than failing after you have paid for the frame.
+
+```bash
+INREELS_API_KEY=ir_live_…      # inreels.ai/dashboard/settings/api-keys
+IMAGE_PROVIDER=inreels
+MOTION_PROVIDER=inreels
+VOICE_PROVIDER=inreels
+INREELS_MOTION_MODEL=seedance-2.0-mini-frames   # 3 credits per 5s
+```
+
+For this format in particular, Seedance mini is the one to reach for: it is
+about a quarter the price of Kling and holds comic timing better, which is what
+a clay performance lives on. On inReels voices are named slugs
+(`allison-millennial`), not ElevenLabs ids — `list_voices` gives the forty.
+
+ffmpeg is required either way.
 
 ## Method
 

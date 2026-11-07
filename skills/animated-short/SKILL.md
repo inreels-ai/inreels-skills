@@ -21,17 +21,37 @@ cp .env.example .env     # then fill in the keys for the backend you chose
 
 Backends — pick one, or mix them:
 
-| Step | Default (keys) | No-key option |
+| Step | Your own keys | One inReels account |
 |---|---|---|
-| images | Replicate `google/nano-banana` | inReels MCP `generate_image` |
-| motion | Replicate `wan-video/wan-2.5-i2v`, or fal Kling | inReels MCP `generate_video` |
-| voice | ElevenLabs (word timestamps) | inReels MCP `generate_speech` + local whisper |
-| sound | ElevenLabs sound-generation | skip, or your own files |
+| images | Replicate `google/nano-banana` | `IMAGE_PROVIDER=inreels` |
+| motion | fal Kling, or Replicate `wan-2.5-i2v` | `MOTION_PROVIDER=inreels` |
+| voice | ElevenLabs | `VOICE_PROVIDER=inreels` |
+| vision QC | Anthropic `CLAUDE_API_KEY` | Anthropic `CLAUDE_API_KEY` |
+| sound effects | ElevenLabs | ElevenLabs |
 | render | ffmpeg, local | ffmpeg, local |
 
-ffmpeg is required either way. The inReels route needs one account instead of
-three keys, and `generate_speech` does not return word timings — step 3 falls
-back to whisper locally for those.
+The inReels column replaces two provider accounts with one, billed in credits,
+and it is tested — the whole pipeline has been run through it. It does **not**
+replace all of them: the vision check needs an Anthropic key whichever backend
+paints the frames, and sound effects still need ElevenLabs. Without
+`CLAUDE_API_KEY` step 2 paints without checking its own work and says so,
+rather than failing after you have paid for the frame.
+
+```bash
+INREELS_API_KEY=ir_live_…      # inreels.ai/dashboard/settings/api-keys
+IMAGE_PROVIDER=inreels
+MOTION_PROVIDER=inreels
+VOICE_PROVIDER=inreels
+INREELS_MOTION_MODEL=seedance-2.0-mini-frames   # 3 credits per 5s; list_models for the rest
+```
+
+Two things differ on that path. Voices are named slugs — `soothing-narrator`,
+not an ElevenLabs id — so `--voice` takes a different kind of value; `list_voices`
+gives the forty. And references are uploaded rather than inlined, which the
+code handles, but it means the first shot using a character sheet is slower
+than the rest.
+
+ffmpeg is required either way.
 
 ## Method
 

@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, need } from './lib/env.mjs';
+import * as inreels from './lib/inreels.mjs';
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), [])
@@ -28,7 +29,9 @@ loadEnv(args.env);
 const dir = args.dir ?? 'work';
 const storyPath = args.story ?? path.join(dir, 'story.json');
 const story = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
-const NARRATOR = args.voice ?? 'e5WNhrdI30aXpS2RSGm1';
+// Two namespaces: ElevenLabs raw ids, and inReels named slugs. Passing one
+// where the other is expected is rejected, so the default follows the backend.
+const NARRATOR = args.voice ?? (process.env.VOICE_PROVIDER === 'inreels' ? inreels.DEFAULT_VOICE : 'e5WNhrdI30aXpS2RSGm1');
 // The film opens on picture and sound before anyone speaks. Every timing below
 // carries this offset, so the mix and the cut stay in sync with it for free.
 const LEAD_IN = Number(args.leadIn ?? 0.6);
@@ -37,7 +40,7 @@ const LEAD_IN = Number(args.leadIn ?? 0.6);
 const GAP_TURN = Number(args.gapTurn ?? 0.45);
 const GAP_SAME = Number(args.gapSame ?? 0.22);
 
-const key = need('ELEVENLABS_API_KEY');
+const key = process.env.VOICE_PROVIDER === 'inreels' ? null : need('ELEVENLABS_API_KEY');
 const mp3 = path.join(dir, 'narration.mp3');
 
 // ── one line of speech, with its character timings folded into words ────────
@@ -57,7 +60,19 @@ function foldWords(a) {
   return words;
 }
 
+// elevenlabs = your own key, raw ElevenLabs voice ids.
+// inreels     = one account; voices are named slugs from list_voices, and the
+//               run carries the same word timings, so neither mode needs a
+//               local speech-to-text pass to find the syllables.
+const VOICE_PROVIDER = process.env.VOICE_PROVIDER || 'elevenlabs';
+
 async function speak(text, voiceId) {
+  if (VOICE_PROVIDER === 'inreels') {
+    const { url, words } = await inreels.generateSpeech({ text, voiceId });
+    const audio = Buffer.from(await (await fetch(url)).arrayBuffer());
+    if (!words) throw new Error('inReels returned speech with no word timings; cannot cut to the voice.');
+    return { audio, words };
+  }
   const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/with-timestamps`, {
     method: 'POST',
     headers: { 'xi-api-key': key, 'content-type': 'application/json' },
