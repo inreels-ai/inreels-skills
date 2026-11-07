@@ -68,9 +68,9 @@ cp .env.example .env     # then fill in the keys for the backend you chose
 The inReels column is tested, not aspirational — the whole pipeline has been
 run through it. It replaces two provider accounts with one billed in credits,
 but not quite all: the vision check needs an Anthropic key whichever backend
-paints the frames. `SOUND_PROVIDER=inreels` is newer than the rest and has not
-had a whole ad through it; drop that line and keep an ElevenLabs key if it
-gives you trouble. Without
+paints the frames. `SOUND_PROVIDER=inreels` is newer than the rest: the call is
+verified against production, but no complete ad has run through it. Drop that
+line and keep an ElevenLabs key if it gives you trouble. Without
 `CLAUDE_API_KEY` step 2 paints without checking its own work and says so,
 rather than failing after you have paid for the frame.
 

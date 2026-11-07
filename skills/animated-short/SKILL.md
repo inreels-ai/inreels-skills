@@ -32,9 +32,10 @@ Backends — pick one, or mix them:
 
 The inReels column replaces the three provider accounts with one, billed in
 credits. Images, voice and motion have been run end to end on it — a whole
-film was built that way. `SOUND_PROVIDER=inreels` is newer and has not had a
-film through it yet; if it gives you trouble, drop that one line and keep an
-ElevenLabs key for step 5.
+film was built that way. `SOUND_PROVIDER=inreels` is newer: the call itself is
+verified against production — an ambience bed came back at exactly the length
+asked for — but no complete film has run through it yet. If it gives you
+trouble, drop that one line and keep an ElevenLabs key for step 5.
 
 One key stays separate either way: the vision check needs an Anthropic key
 whichever backend paints the frames. Without `CLAUDE_API_KEY` step 2 paints
