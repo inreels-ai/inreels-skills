@@ -1,0 +1,580 @@
+{
+  "brand": "MUCKLE",
+  "tagline": "Let them get filthy.",
+  "product": {
+    "name": "Muckle Stain Powder",
+    "pack": "A chunky upright cardboard carton of laundry powder, deep navy blue with a broad sunflower-yellow band across the middle and a single white splash graphic bursting out of the band, matte card finish with a slight sheen on the yellow",
+    "claim": "Lifts mud in one wash",
+    "sheet": "work/pack.jpg"
+  },
+  "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+  "voStartsAt": 0.5,
+  "vo": "Tilly found the only puddle in the county. Again. One scoop of Muckle, one wash, and the mud is simply gone.",
+  "looks": {
+    "clay": "Stop-motion claymation shot on a real miniature set: every object modelled in soft plasticine with visible thumbprints, fingernail dents and tool marks in the clay, slightly uneven hand-rolled surfaces, matte clay sheen under warm practical studio lights, shallow macro depth of field, tiny set-build scale. Not painted, not CGI, no smooth digital surfaces, no gradients",
+    "macro": "Photorealistic macro cinematography shot on a full-frame camera with a 100mm macro lens at f/2.8: true-to-life fabric weave and water droplets, clean bright daylight with accurate falloff, subtle lens vignetting, fine film grain, very shallow depth of field with creamy bokeh. Not an illustration, not a painting, no stylisation"
+  },
+  "score": {
+    "mood": "Bright domestic kitchen, cheerful and busy"
+  },
+  "characters": [
+    {
+      "name": "Bram",
+      "role": "Father, forties, holding the evidence",
+      "look": "Tall clay figure with a long narrow face, enormous protruding ears, a large bulbous nose, heavy dark eyebrows and a small worried mouth; short mussed brown hair; olive-green knitted jumper with the sleeves pushed up and a faded red apron.",
+      "sheet": "work/char-bram.jpg"
+    },
+    {
+      "name": "Tilly",
+      "role": "Daughter, six, extremely pleased with herself",
+      "look": "Small round clay figure with a wide grinning mouth showing a missing front tooth, huge round eyes, big ears, two stubby ginger pigtails; bright yellow raincoat and red wellington boots, both caked in thick brown mud.",
+      "sheet": "work/char-tilly.jpg"
+    }
+  ],
+  "shots": [
+    {
+      "index": 1,
+      "movement": "setup",
+      "look": "macro",
+      "seconds": 1.2,
+      "type": "extreme macro insert",
+      "characters": [],
+      "visual": "Extreme macro of thick wet brown mud sliding slowly down a white cotton weave, individual fibres soaked dark, a single droplet hanging at the bottom edge.",
+      "motionScore": 2,
+      "motionPrompt": "The mud slides a little further down the weave and the hanging droplet swells and falls.",
+      "sfx": "A thick wet slap of mud on cloth",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.48,
+        "y": 0.5
+      },
+      "image": "work/shots/01.jpg",
+      "voice": {
+        "start": 0,
+        "end": 1.2
+      },
+      "clip": "work/clips/01.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/01.mp3",
+      "from": 0,
+      "dur": 1.2,
+      "seg": "work/seg/01.mp4"
+    },
+    {
+      "index": 2,
+      "movement": "setup",
+      "look": "clay",
+      "seconds": 1,
+      "type": "medium shot",
+      "characters": [
+        "Tilly"
+      ],
+      "visual": "Tilly stands in a bright clay kitchen doorway in her yellow raincoat and red wellingtons, both caked in thick brown mud, arms spread wide, grinning enormously with her missing front tooth showing, mud dripping off her elbows onto the tiles.",
+      "motionScore": 1,
+      "motionPrompt": "Tilly's grin widens and mud drips from her elbows.",
+      "sfx": "Small wellington boots squelching on tile",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.57
+      },
+      "image": "work/shots/02.jpg",
+      "voice": {
+        "start": 1.2,
+        "end": 2.2
+      },
+      "sfxFile": "work/sfx/02.mp3",
+      "from": 1.2,
+      "dur": 1,
+      "seg": "work/seg/02.mp4"
+    },
+    {
+      "index": 3,
+      "movement": "setup",
+      "look": "macro",
+      "seconds": 0.7,
+      "type": "macro insert",
+      "characters": [],
+      "visual": "Macro of a muddy child-sized boot print pressed into a pale kitchen tile, grit and water pooled in the tread marks.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.58
+      },
+      "image": "work/shots/03.jpg",
+      "voice": {
+        "start": 2.2,
+        "end": 2.9000000000000004
+      },
+      "from": 2.2,
+      "dur": 0.7,
+      "seg": "work/seg/03.mp4"
+    },
+    {
+      "index": 4,
+      "movement": "setup",
+      "look": "clay",
+      "seconds": 0.5,
+      "type": "close-up",
+      "characters": [
+        "Bram"
+      ],
+      "visual": "Close-up of Bram's long clay face, eyebrows up near his hairline, mouth a small flat line, eyes wide as he looks down at something out of frame.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.3
+      },
+      "image": "work/shots/04.jpg",
+      "voice": {
+        "start": 2.9000000000000004,
+        "end": 3.4000000000000004
+      },
+      "from": 2.9000000000000004,
+      "dur": 0.5,
+      "seg": "work/seg/04.mp4"
+    },
+    {
+      "index": 5,
+      "movement": "setup",
+      "look": "macro",
+      "seconds": 0.4,
+      "type": "extreme macro insert",
+      "characters": [],
+      "visual": "Extreme macro of dried mud flaking off a white cotton cuff, tiny crumbs of dirt tumbling away from the fibres.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "image": "work/shots/05.jpg",
+      "voice": {
+        "start": 3.4000000000000004,
+        "end": 3.8000000000000003
+      },
+      "from": 3.4000000000000004,
+      "dur": 0.4,
+      "seg": "work/seg/05.mp4"
+    },
+    {
+      "index": 6,
+      "movement": "setup",
+      "look": "clay",
+      "seconds": 0.3,
+      "type": "insert",
+      "characters": [],
+      "visual": "A clay laundry basket heaped far too high with filthy brown-streaked white clothes, one sock balanced on the very top of the pile.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "image": "work/shots/06.jpg",
+      "voice": {
+        "start": 3.8000000000000003,
+        "end": 4.1000000000000005
+      },
+      "from": 3.8000000000000003,
+      "dur": 0.3,
+      "seg": "work/seg/06.mp4"
+    },
+    {
+      "index": 7,
+      "movement": "beat",
+      "look": "clay",
+      "seconds": 4.6,
+      "type": "two-shot",
+      "characters": [
+        "Bram",
+        "Tilly"
+      ],
+      "visual": "Bram stands in the clay kitchen holding up a small white t-shirt entirely covered in brown mud, pinched between two fingers at arm's length, his whole face sagging in defeat. Tilly stands beside him in her muddy raincoat looking up at the shirt with enormous delight, both thumbs up.",
+      "motionScore": 3,
+      "motionPrompt": "Bram's shoulders sag lower and the muddy shirt sways slightly on his fingers while Tilly bounces once on her toes.",
+      "sfx": "A long weary sigh of fabric, a small child giggling",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.47,
+        "y": 0.5
+      },
+      "image": "work/shots/07.jpg",
+      "voice": {
+        "start": 4.1000000000000005,
+        "end": 8.7
+      },
+      "clip": "work/clips/07.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/07.mp3",
+      "from": 4.1000000000000005,
+      "dur": 4.6,
+      "seg": "work/seg/07.mp4"
+    },
+    {
+      "index": 8,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.5,
+      "type": "macro insert",
+      "characters": [],
+      "visual": "Macro of navy and yellow laundry powder granules pouring in a bright stream into clear water, caught mid-fall against a white background.",
+      "motionScore": 0,
+      "sfx": "A rush of powder granules pouring",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.54,
+        "y": 0.45
+      },
+      "image": "work/shots/08.jpg",
+      "voice": {
+        "start": 8.7,
+        "end": 9.2
+      },
+      "sfxFile": "work/sfx/08.mp3",
+      "from": 8.7,
+      "dur": 0.5,
+      "seg": "work/seg/08.mp4"
+    },
+    {
+      "index": 9,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.4,
+      "type": "extreme macro insert",
+      "characters": [],
+      "visual": "Extreme macro of powder granules dissolving into a cloud of fine white bloom through clear water, thousands of tiny bubbles rising.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "image": "work/shots/09.jpg",
+      "voice": {
+        "start": 9.2,
+        "end": 9.6
+      },
+      "from": 9.2,
+      "dur": 0.4,
+      "seg": "work/seg/09.mp4"
+    },
+    {
+      "index": 10,
+      "movement": "montage",
+      "look": "clay",
+      "seconds": 0.35,
+      "type": "insert",
+      "characters": [],
+      "visual": "A clay washing machine drum spinning fast behind its round glass door, white clothes whirling inside, warm kitchen light on the chrome rim.",
+      "motionScore": 0,
+      "sfx": "A washing machine drum spinning up",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.49,
+        "y": 0.55
+      },
+      "image": "work/shots/10.jpg",
+      "voice": {
+        "start": 9.6,
+        "end": 9.95
+      },
+      "sfxFile": "work/sfx/10.mp3",
+      "from": 9.6,
+      "dur": 0.35,
+      "seg": "work/seg/10.mp4"
+    },
+    {
+      "index": 11,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.3,
+      "type": "extreme macro insert",
+      "characters": [],
+      "visual": "Extreme macro of brown mud lifting away from white cotton fibres in curling ribbons, clean white threads appearing underneath.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "image": "work/shots/11.jpg",
+      "voice": {
+        "start": 9.95,
+        "end": 10.25
+      },
+      "from": 9.95,
+      "dur": 0.3,
+      "seg": "work/seg/11.mp4"
+    },
+    {
+      "index": 12,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.22,
+      "type": "extreme macro insert",
+      "characters": [],
+      "visual": "Extreme macro of a wall of white foam bubbles sliding across wet fabric, each bubble catching a pinpoint of light.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "image": "work/shots/12.jpg",
+      "voice": {
+        "start": 10.25,
+        "end": 10.47
+      },
+      "from": 10.25,
+      "dur": 0.22,
+      "seg": "work/seg/12.mp4"
+    },
+    {
+      "index": 13,
+      "movement": "montage",
+      "look": "clay",
+      "seconds": 0.18,
+      "type": "close-up",
+      "characters": [
+        "Bram"
+      ],
+      "visual": "Tight close-up of Bram's clay face lit by the washing machine glow, one eyebrow lifting, the corner of his mouth starting to turn up.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.32
+      },
+      "image": "work/shots/13.jpg",
+      "voice": {
+        "start": 10.47,
+        "end": 10.65
+      },
+      "from": 10.47,
+      "dur": 0.18,
+      "seg": "work/seg/13.mp4"
+    },
+    {
+      "index": 14,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.45,
+      "type": "macro insert",
+      "characters": [],
+      "visual": "Macro of clear water running off a pure white cotton sleeve in a smooth sheet, the weave crisp and bright, sunlight behind it.",
+      "motionScore": 0,
+      "sfx": "Clear water running off cloth",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "image": "work/shots/14.jpg",
+      "voice": {
+        "start": 10.65,
+        "end": 11.1
+      },
+      "sfxFile": "work/sfx/14.mp3",
+      "from": 10.65,
+      "dur": 0.45,
+      "seg": "work/seg/14.mp4"
+    },
+    {
+      "index": 15,
+      "movement": "montage",
+      "look": "macro",
+      "seconds": 0.5,
+      "type": "macro insert",
+      "characters": [],
+      "visual": "Macro of a folded stack of brilliant white cotton clothes in bright daylight, every fibre clean, one soft shadow between the folds.",
+      "motionScore": 0,
+      "sfx": "",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "image": "work/shots/15.jpg",
+      "voice": {
+        "start": 11.1,
+        "end": 11.6
+      },
+      "from": 11.1,
+      "dur": 0.5,
+      "seg": "work/seg/15.mp4"
+    },
+    {
+      "index": 16,
+      "movement": "payoff",
+      "look": "clay",
+      "seconds": 3.1,
+      "type": "two-shot",
+      "characters": [
+        "Bram",
+        "Tilly"
+      ],
+      "visual": "Bram holds up the same small t-shirt, now brilliant white, with both hands and a wide proud grin across his long clay face. Beside him Tilly is already back in her yellow raincoat and red wellingtons, clean this time, one hand on the kitchen door handle, looking out at the garden with obvious intent.",
+      "motionScore": 3,
+      "motionPrompt": "Bram lifts the clean white shirt a little higher and beams while Tilly turns the door handle.",
+      "sfx": "A cheerful snap of clean fabric, a door handle turning",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.47,
+        "y": 0.5
+      },
+      "image": "work/shots/16.jpg",
+      "voice": {
+        "start": 11.6,
+        "end": 14.7
+      },
+      "clip": "work/clips/16.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work/sfx/16.mp3",
+      "from": 11.6,
+      "dur": 3.1,
+      "seg": "work/seg/16.mp4"
+    },
+    {
+      "index": 17,
+      "movement": "hero",
+      "look": "macro",
+      "seconds": 1.8,
+      "type": "product hero shot",
+      "characters": [],
+      "visual": "The MUCKLE carton standing alone and perfectly upright in the centre of the frame on a clean white surface, lit by a bright radial burst of warm light fanning out behind it, a few suspended water droplets glinting in the air around it.",
+      "motionScore": 0,
+      "sfx": "A bright sparkle chime",
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.51,
+        "y": 0.52
+      },
+      "image": "work/shots/17.jpg",
+      "voice": {
+        "start": 14.7,
+        "end": 16.5
+      },
+      "sfxFile": "work/sfx/17.mp3",
+      "from": 14.7,
+      "dur": 1.8,
+      "seg": "work/seg/17.mp4"
+    },
+    {
+      "index": 18,
+      "movement": "endcard",
+      "look": "macro",
+      "seconds": 2.6,
+      "type": "brand end card",
+      "characters": [],
+      "visual": "The MUCKLE carton small and centred in the upper half of a clean bright frame, standing on a shallow sheet of water with a soft white splash curling up behind it and a plain pale blue background above, the lower half of the frame left empty and uncluttered.",
+      "motionScore": 0,
+      "sfx": "A soft water splash",
+      "qc": {
+        "pass": true,
+        "flaws": [
+          "The water reflection of the pack is blurred and mirrored, and the lower half is not fully empty. This is a natural reflection, not stray lettering, so it is not a fail."
+        ],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "image": "work/shots/18.jpg",
+      "voice": {
+        "start": 16.5,
+        "end": 19.1
+      },
+      "sfxFile": "work/sfx/18.mp3",
+      "from": 16.5,
+      "dur": 2.6,
+      "seg": "work/seg/18.mp4"
+    }
+  ],
+  "narration": {
+    "file": "work/vo.mp3",
+    "seconds": 19.1,
+    "leadIn": 0.5,
+    "words": 21
+  },
+  "mix": "work/mix.m4a"
+}

@@ -66,7 +66,11 @@ const leadMs = Math.round(lead * 1000);
 const parts = [
   // Generated audio comes back anywhere from -20 to -55 dB, so every stem is
   // normalised to a target level first. Fixed gains cannot work across that spread.
-  `[0:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-16:TP=-1.5,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,adelay=${leadMs}|${leadMs},asplit=2[v][key]`,
+  `[0:a]aformat=sample_rates=44100:channel_layouts=stereo,loudnorm=I=-16:TP=-1.5,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,adelay=${leadMs}|${leadMs},asplit=2[v][keyraw]`,
+  // sidechaincompress ENDS when its key ends, so without this pad the whole
+  // mix is cut down to the length of the voice and the film's tail goes
+  // silent. Silence in the key means no ducking, which is what we want there.
+  `[keyraw]apad=whole_dur=${total}[key]`,
   `[1:a]aformat=sample_rates=44100:channel_layouts=stereo,atrim=0:${total},loudnorm=I=-31:TP=-3,aresample=44100,aformat=sample_rates=44100:channel_layouts=stereo,afade=t=in:st=0:d=0.8[b]`,
 ];
 let n = 2;
