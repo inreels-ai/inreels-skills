@@ -89,9 +89,14 @@ const ass = [
 ass.push(`Dialogue: 0,${tc(0.25)},${tc(3.0)},Kicker,,0,0,0,,{\\fad(400,400)\\pos(${W / 2},${H * 0.4})}${esc(story.titleCard.kicker.toUpperCase())}`);
 ass.push(`Dialogue: 0,${tc(0.45)},${tc(3.2)},Title,,0,0,0,,{\\fad(500,500)\\pos(${W / 2},${H * 0.48})}${esc(story.titleCard.lines.join('\\N'))}`);
 
-// one lower third per sentence
+// one lower third per sentence. In a dialogue the speaker's first name leads
+// the line in the title colour — without it two voices over two faces is work
+// the viewer has to do, and a muted phone is the normal way these are watched.
 for (const s of shots) {
-  ass.push(`Dialogue: 0,${tc(s.voice.start)},${tc(s.voice.end + 0.35)},Cap,,0,0,0,,{\\fad(220,220)}${esc(s.narration)}`);
+  const who = s.speaker
+    ? `{\\c&HC9B48A&}${esc(s.speaker.split(' ')[0].toUpperCase())}  {\\c&HFFFFFF&}`
+    : '';
+  ass.push(`Dialogue: 0,${tc(s.voice.start)},${tc(s.voice.end + 0.35)},Cap,,0,0,0,,{\\fad(220,220)}${who}${esc(s.narration)}`);
 }
 
 // the closing line sits alone over the last shot

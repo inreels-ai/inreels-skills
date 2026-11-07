@@ -51,8 +51,8 @@ Rules that decide whether the film works:
   Write it literally into that shot's `visual`, because models default to
   vague and metaphorical.
 - **One style string**, used verbatim in every image prompt. Medium, light,
-  palette. Seven tested ones are in [`styles/`](styles/) — copy one rather than
-  inventing a string, and probe any new style with a single image before
+  palette. Twelve tested ones are in [`styles/`](styles/) — copy one rather
+  than inventing a string, and probe any new style with a single image before
   committing a film to it.
 - **Every character gets a locked `look`** — face, hair, clothing colours,
   signature prop. This is what stops the hero changing face between shots.
@@ -147,9 +147,10 @@ before you spend it.
 
 ## Styles
 
-[`styles/`](styles/) holds a pack per visual style: noir painterly, ink wash,
-watercolour, cartoon explainer, paper collage, papercraft and low poly. Each is
-a proven string plus what it suits and where it breaks.
+[`styles/`](styles/) holds a pack per visual style — noir painterly, ink wash,
+watercolour, cartoon explainer, paper collage, papercraft, low poly, claymation,
+crochet and yarn, felt diorama, feature 3D and ultra-realistic. Each is a proven
+string, a rendered proof image, what it suits and where it breaks.
 
 The pipeline is style-agnostic — the string is the only thing that changes — so
 adding a style is a file, not code.
@@ -159,6 +160,53 @@ techniques** land from a plain description, while styles that are a **physical
 medium or a render engine** need the texture named, a counted palette, and an
 explicit statement of what the medium is not. `styles/README.md` explains why,
 and why that does not contradict the no-negations rule above.
+
+## Two voices
+
+A film can be an exchange instead of a narration. Give every shot a `speaker`
+and every speaking character a `voice`:
+
+```json
+"characters": [
+  { "name": "Nell Harrow", "look": "...", "voice": "cgSgspJ2msm6clMCkdW9" },
+  { "name": "Orrin Vance", "look": "...", "voice": "pqHfZKP75CvOlQylNhV4" }
+],
+"shots": [
+  { "index": 1, "speaker": "Nell Harrow", "narration": "Gate's down. It's three in the morning.", ... },
+  { "index": 2, "speaker": "Orrin Vance", "narration": "Gate's always down at three.", ... }
+]
+```
+
+That is the whole switch. Step 3 sees `speaker`, reads each line as its own
+take in that character's voice, and lays the takes on a timeline with a pause
+between turns — 0.45s when the speaker changes, 0.22s when one carries on.
+Steps 2, 4, 5 and 6 never learn which mode ran; they still read one
+`narration.mp3` and one word-timed span per shot. Captions pick up the
+speaker's first name automatically, which is what makes a two-hander readable
+on a muted phone.
+
+A speaker who is not in `characters[]` reads in the narrator voice, and the
+script says so — that is how you write an unseen voice, and also how a typo
+announces itself.
+
+What changes in the writing:
+
+- **The cap tightens.** Silence between turns is running time, so a 30s
+  dialogue is about 55 words, not 63. `0-validate.mjs` works this out from
+  your own turn pattern.
+- **Trade often.** Three shots in a row from one mouth is a monologue cut into
+  pieces; the validator warns at three.
+- **Give them different voices, audibly.** Two middle-aged American men are
+  one voice to a viewer scrolling past. Contrast age, accent or pitch.
+- **Keep the twist in the picture**, not in a line. The reveal in
+  `examples/the-night-gate.story.json` is the road ending in fog — the line
+  over it is three words long.
+- **Lines, not sentences.** "Not at this hour you don't" is a line. "Orrin
+  explained that the hour was the problem" is narration wearing a name tag.
+
+Cost is the same as narration: one TTS call per line instead of one per film,
+and ElevenLabs bills by the character either way. Re-running step 3 only
+re-reads the lines whose text or voice actually changed.
 
 ## Series
 

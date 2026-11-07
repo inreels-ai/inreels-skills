@@ -1,0 +1,555 @@
+{
+  "title": "The Night Gate",
+  "titleCard": {
+    "kicker": "Two people, one gate",
+    "lines": [
+      "THE NIGHT",
+      "GATE"
+    ]
+  },
+  "logline": "A driver in a hurry meets a toll keeper who will not raise the barrier, and finds out why.",
+  "twist": "The bridge beyond the gate was removed in April — the severed deck ends in fog, and the old man has been the only thing stopping anyone driving off it.",
+  "closingLine": "Not every gate is keeping you out.",
+  "style": "Stop-motion claymation shot on a real miniature set: every object modelled in soft plasticine with visible thumbprints, fingernail dents and tool marks in the clay, slightly uneven hand-rolled surfaces, matte clay sheen under warm practical studio lights, shallow macro depth of field, tiny set-build scale. Not painted, not CGI, no smooth digital surfaces, no gradients",
+  "characters": [
+    {
+      "name": "Nell Harrow",
+      "role": "Driver, late twenties, three hours behind schedule",
+      "look": "Round clay face with a short dark brown bob and a blunt fringe, thick dark eyebrows, large brown eyes, a scatter of freckles across the nose; scarlet puffer jacket over a grey hoodie, black fingerless gloves; always holding a dented steel travel mug.",
+      "voice": "cgSgspJ2msm6clMCkdW9",
+      "sheet": "work-dialogue/char-nell-harrow.jpg"
+    },
+    {
+      "name": "Orrin Vance",
+      "role": "Toll keeper, seventies, forty years on this gate",
+      "look": "Long clay face with deep horizontal forehead creases, a heavy white moustache, bulbous nose, small pale blue eyes under a flat tweed cap; forest-green wool overcoat with brass buttons and a high collar, brown fingerless mittens; always carries a battered red rubber torch.",
+      "voice": "pqHfZKP75CvOlQylNhV4",
+      "sheet": "work-dialogue/char-orrin-vance.jpg"
+    }
+  ],
+  "score": {
+    "mood": "Prickly and comic, then very quiet",
+    "opening": "Idling engine and a ticking indicator over night crickets",
+    "build": "The engine cuts; only wind and far-off water remain",
+    "resolution": "A single low sustained note as the fog shows what is missing"
+  },
+  "shots": [
+    {
+      "index": 1,
+      "type": "establishing wide",
+      "speaker": "Nell Harrow",
+      "narration": "Gate's down. It's three in the morning.",
+      "characters": [
+        "Nell Harrow"
+      ],
+      "visual": "Wide night shot of a tiny clay tollbooth on an empty mountain road, a red and white striped barrier lowered across the lane, Nell's small boxy clay car stopped at it with both headlights blazing into thick fog, Nell leaning out of the driver's window, mouth open mid-shout, eyebrows pushed together in irritation.",
+      "camera": "static wide",
+      "motionScore": 2,
+      "motionPrompt": "Fog drifts slowly through the headlight beams and the car's indicator blinks steadily; everything else holds still.",
+      "sfx": "Idling engine, ticking indicator, night crickets",
+      "act": 1,
+      "qc": {
+        "pass": true,
+        "flaws": [
+          "Nell appears to stand behind the car roof with her hand on it, rather than leaning out of the driver's window. This is a minor pose issue.",
+          "Her travel mug and fingerless gloves are not clearly visible. This is a small prop difference.",
+          "Nell looks oversized relative to the car, but the anatomy is not broken."
+        ],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.48,
+        "y": 0.4
+      },
+      "image": "work-dialogue/shots/01.jpg",
+      "voice": {
+        "start": 0.6,
+        "end": 2.829,
+        "words": [
+          {
+            "word": "Gate's",
+            "start": 0.6,
+            "end": 0.9019999999999999
+          },
+          {
+            "word": "down.",
+            "start": 0.948,
+            "end": 1.343
+          },
+          {
+            "word": "It's",
+            "start": 1.436,
+            "end": 1.657
+          },
+          {
+            "word": "three",
+            "start": 1.6909999999999998,
+            "end": 1.8649999999999998
+          },
+          {
+            "word": "in",
+            "start": 1.9,
+            "end": 1.947
+          },
+          {
+            "word": "the",
+            "start": 1.9819999999999998,
+            "end": 2.051
+          },
+          {
+            "word": "morning.",
+            "start": 2.086,
+            "end": 2.829
+          }
+        ]
+      },
+      "clip": "work-dialogue/clips/01.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work-dialogue/sfx/01.mp3",
+      "from": 0,
+      "dur": 3.3226530000000003,
+      "seg": "work-dialogue/seg/01.mp4"
+    },
+    {
+      "index": 2,
+      "type": "medium",
+      "speaker": "Orrin Vance",
+      "narration": "Gate's always down at three.",
+      "characters": [
+        "Orrin Vance"
+      ],
+      "visual": "Medium shot through the lit tollbooth window of Orrin seated on a stool in his green overcoat and tweed cap, hands folded over the red torch in his lap, one eyebrow raised high, entirely unbothered; a mug and a paper logbook on the ledge beside him.",
+      "camera": "slow push-in",
+      "motionScore": 1,
+      "motionPrompt": "Orrin slowly raises one eyebrow higher and the fog outside the window shifts.",
+      "sfx": "Muffled engine through glass, a clock ticking in the booth",
+      "act": 1,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.44,
+        "y": 0.55
+      },
+      "image": "work-dialogue/shots/02.jpg",
+      "voice": {
+        "start": 3.3226530000000003,
+        "end": 5.272653,
+        "words": [
+          {
+            "word": "Gate's",
+            "start": 3.3226530000000003,
+            "end": 3.682653
+          },
+          {
+            "word": "always",
+            "start": 3.7406530000000004,
+            "end": 4.088653000000001
+          },
+          {
+            "word": "down",
+            "start": 4.146653000000001,
+            "end": 4.379653
+          },
+          {
+            "word": "at",
+            "start": 4.4256530000000005,
+            "end": 4.506653
+          },
+          {
+            "word": "three.",
+            "start": 4.553653000000001,
+            "end": 5.272653
+          }
+        ]
+      },
+      "sfxFile": "work-dialogue/sfx/02.mp3",
+      "from": 3.3226530000000003,
+      "dur": 2.435306,
+      "seg": "work-dialogue/seg/02.mp4"
+    },
+    {
+      "index": 3,
+      "type": "close-up",
+      "speaker": "Nell Harrow",
+      "narration": "I drive this road every week.",
+      "characters": [
+        "Nell Harrow"
+      ],
+      "visual": "Close-up on Nell's clay face lit hard from below by the dashboard, jaw set, both eyebrows down, the steel travel mug raised halfway as she gestures with it, fog glowing red behind her in the brake lights.",
+      "camera": "handheld close",
+      "motionScore": 2,
+      "motionPrompt": "Nell jabs the travel mug forward twice as she speaks and her eyebrows press lower.",
+      "sfx": "Interior car hum, a mug tapping the steering wheel",
+      "act": 2,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.51,
+        "y": 0.4
+      },
+      "image": "work-dialogue/shots/03.jpg",
+      "voice": {
+        "start": 5.7579590000000005,
+        "end": 7.429959,
+        "words": [
+          {
+            "word": "I",
+            "start": 5.7579590000000005,
+            "end": 5.838959000000001
+          },
+          {
+            "word": "drive",
+            "start": 5.943959,
+            "end": 6.1409590000000005
+          },
+          {
+            "word": "this",
+            "start": 6.175959000000001,
+            "end": 6.291959
+          },
+          {
+            "word": "road",
+            "start": 6.349959,
+            "end": 6.512959
+          },
+          {
+            "word": "every",
+            "start": 6.558959000000001,
+            "end": 6.744959000000001
+          },
+          {
+            "word": "week.",
+            "start": 6.779959000000001,
+            "end": 7.429959
+          }
+        ]
+      },
+      "clip": "work-dialogue/clips/03.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work-dialogue/sfx/03.mp3",
+      "from": 5.7579590000000005,
+      "dur": 2.147959,
+      "seg": "work-dialogue/seg/03.mp4"
+    },
+    {
+      "index": 4,
+      "type": "over-the-shoulder",
+      "speaker": "Orrin Vance",
+      "narration": "Not at this hour you don't.",
+      "characters": [
+        "Orrin Vance",
+        "Nell Harrow"
+      ],
+      "visual": "Over Nell's shoulder from inside the car, looking out at Orrin standing now in the booth doorway, torch hanging at his side, coat collar up, head tilted, giving her a flat patient look across the fogged tarmac.",
+      "camera": "over-the-shoulder",
+      "motionScore": 1,
+      "motionPrompt": "Orrin tilts his head a little further and the fog rolls between him and the car.",
+      "sfx": "Car door creak, wind across the road",
+      "act": 2,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.66,
+        "y": 0.46
+      },
+      "image": "work-dialogue/shots/04.jpg",
+      "voice": {
+        "start": 7.905918000000001,
+        "end": 9.670918,
+        "words": [
+          {
+            "word": "Not",
+            "start": 7.905918000000001,
+            "end": 8.184918000000001
+          },
+          {
+            "word": "at",
+            "start": 8.230918,
+            "end": 8.300918000000001
+          },
+          {
+            "word": "this",
+            "start": 8.335918000000001,
+            "end": 8.485918
+          },
+          {
+            "word": "hour",
+            "start": 8.544918000000001,
+            "end": 8.776918
+          },
+          {
+            "word": "you",
+            "start": 8.869918,
+            "end": 8.950918000000001
+          },
+          {
+            "word": "don't.",
+            "start": 9.008918000000001,
+            "end": 9.670918
+          }
+        ]
+      },
+      "sfxFile": "work-dialogue/sfx/04.mp3",
+      "from": 7.905918000000001,
+      "dur": 2.2524489999999995,
+      "seg": "work-dialogue/seg/04.mp4"
+    },
+    {
+      "index": 5,
+      "type": "low angle",
+      "speaker": "Nell Harrow",
+      "narration": "Then raise it. I'm late.",
+      "characters": [
+        "Nell Harrow"
+      ],
+      "visual": "Low angle from the tarmac looking up at Nell standing out of the car in her scarlet puffer jacket, one hand flat on the lowered striped barrier, pushing down on it, teeth gritted, headlights flaring white behind her shoulders.",
+      "camera": "low angle",
+      "motionScore": 2,
+      "motionPrompt": "Nell presses down on the barrier and it springs back up under her palm.",
+      "sfx": "A hand slapping painted wood, the barrier flexing",
+      "act": 2,
+      "qc": {
+        "pass": true,
+        "flaws": [
+          "Camera is closer to eye level than the low angle the brief asks for (not a fail condition).",
+          "Both hands are on the barrier instead of one, and the steel travel mug is absent (minor, not a fail condition).",
+          "The blurred background signs show faint smudges but no legible letters."
+        ],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.48,
+        "y": 0.5
+      },
+      "image": "work-dialogue/shots/05.jpg",
+      "voice": {
+        "start": 10.158367,
+        "end": 11.691367,
+        "words": [
+          {
+            "word": "Then",
+            "start": 10.158367,
+            "end": 10.344367
+          },
+          {
+            "word": "raise",
+            "start": 10.402367,
+            "end": 10.599367
+          },
+          {
+            "word": "it.",
+            "start": 10.657367,
+            "end": 10.843367
+          },
+          {
+            "word": "I'm",
+            "start": 10.936367,
+            "end": 11.075367
+          },
+          {
+            "word": "late.",
+            "start": 11.122367,
+            "end": 11.691367
+          }
+        ]
+      },
+      "sfxFile": "work-dialogue/sfx/05.mp3",
+      "from": 10.158367,
+      "dur": 2.017346999999999,
+      "seg": "work-dialogue/seg/05.mp4"
+    },
+    {
+      "index": 6,
+      "type": "medium two-shot",
+      "speaker": "Orrin Vance",
+      "narration": "Walk up and look first.",
+      "characters": [
+        "Orrin Vance",
+        "Nell Harrow"
+      ],
+      "visual": "Medium two-shot at the barrier, Orrin beside Nell with the red torch lifted and switched on, its beam pointing away up the road into the fog; his expression soft and tired, hers caught mid-argument with her mouth still open.",
+      "camera": "static two-shot",
+      "motionScore": 2,
+      "motionPrompt": "The torch beam lifts and swings slowly up the road into the fog.",
+      "sfx": "A torch switch clicking, boots on wet tarmac",
+      "act": 3,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.62
+      },
+      "image": "work-dialogue/shots/06.jpg",
+      "voice": {
+        "start": 12.175714,
+        "end": 13.893714,
+        "words": [
+          {
+            "word": "Walk",
+            "start": 12.175714,
+            "end": 12.488714
+          },
+          {
+            "word": "up",
+            "start": 12.581714,
+            "end": 12.697714
+          },
+          {
+            "word": "and",
+            "start": 12.744713999999998,
+            "end": 12.825714
+          },
+          {
+            "word": "look",
+            "start": 12.872713999999998,
+            "end": 13.034714
+          },
+          {
+            "word": "first.",
+            "start": 13.115713999999999,
+            "end": 13.893714
+          }
+        ]
+      },
+      "sfxFile": "work-dialogue/sfx/06.mp3",
+      "from": 12.175714,
+      "dur": 2.2002039999999994,
+      "seg": "work-dialogue/seg/06.mp4"
+    },
+    {
+      "index": 7,
+      "type": "reveal",
+      "speaker": "Nell Harrow",
+      "narration": "Where's the bridge?",
+      "characters": [
+        "Nell Harrow"
+      ],
+      "visual": "Night. Reveal shot from behind Nell, small in frame at the edge of the road, her long shadow thrown forward by white car headlights behind the camera: thirty metres past the gate the cold grey tarmac ends in a clean torn edge of grey clay roadbed with rusted rebar curling out of it, and past that a deep gorge of grey rock filled to the brim with pale night fog. Everything is cold grey and blue except the scarlet of her jacket. Her arms hang at her sides and the steel travel mug lies on the tarmac where it rolled.",
+      "camera": "slow pull-back",
+      "motionScore": 3,
+      "motionPrompt": "Fog pours slowly up out of the gorge past the broken edge of the road while the camera eases back from Nell's shoulders.",
+      "sfx": "Wind rising out of a deep space, a mug rolling on tarmac",
+      "act": 3,
+      "qc": {
+        "pass": false,
+        "flaws": [
+          "The steel travel mug appears twice: Nell is still holding one against her chest and a second lies on the tarmac beside her. The brief calls for a single mug lying on the ground.",
+          "Nell faces the camera, but the brief asks for a shot from behind her. A car with its headlights on is also visible in the frame, where the brief puts the headlights behind the camera. Because she faces forward, her arms are not hanging at her sides and her shadow is not thrown forward."
+        ],
+        "attempts": 2
+      },
+      "focus": {
+        "x": 0.39,
+        "y": 0.33
+      },
+      "image": "work-dialogue/shots/07.jpg",
+      "voice": {
+        "start": 14.375917999999999,
+        "end": 15.582918,
+        "words": [
+          {
+            "word": "Where's",
+            "start": 14.375917999999999,
+            "end": 14.665917999999998
+          },
+          {
+            "word": "the",
+            "start": 14.700917999999998,
+            "end": 14.770917999999998
+          },
+          {
+            "word": "bridge?",
+            "start": 14.793917999999998,
+            "end": 15.582918
+          }
+        ]
+      },
+      "clip": "work-dialogue/clips/07.mp4",
+      "clipSeconds": 5,
+      "sfxFile": "work-dialogue/sfx/07.mp3",
+      "from": 14.375917999999999,
+      "dur": 1.7038779999999996,
+      "seg": "work-dialogue/seg/07.mp4"
+    },
+    {
+      "index": 8,
+      "type": "epilogue",
+      "speaker": "Orrin Vance",
+      "narration": "Took it out in April.",
+      "characters": [
+        "Orrin Vance"
+      ],
+      "visual": "Close medium of Orrin back on his stool in the warm yellow booth, torch laid across the open paper logbook, writing one short line in it with a stub of pencil, face calm; through the window behind him the red and white barrier stays down across the empty foggy road.",
+      "camera": "static close",
+      "motionScore": 1,
+      "motionPrompt": "The pencil moves across the logbook page and the lamp above him sways very slightly.",
+      "sfx": "A pencil on paper, the booth clock, distant wind",
+      "act": 3,
+      "qc": {
+        "pass": true,
+        "flaws": [],
+        "attempts": 1
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.58
+      },
+      "image": "work-dialogue/shots/08.jpg",
+      "voice": {
+        "start": 16.079795999999998,
+        "end": 17.751796,
+        "words": [
+          {
+            "word": "Took",
+            "start": 16.079795999999998,
+            "end": 16.323795999999998
+          },
+          {
+            "word": "it",
+            "start": 16.358795999999998,
+            "end": 16.427795999999997
+          },
+          {
+            "word": "out",
+            "start": 16.462795999999997,
+            "end": 16.625795999999998
+          },
+          {
+            "word": "in",
+            "start": 16.706795999999997,
+            "end": 16.799795999999997
+          },
+          {
+            "word": "April.",
+            "start": 16.880795999999997,
+            "end": 17.751796
+          }
+        ]
+      },
+      "sfxFile": "work-dialogue/sfx/08.mp3",
+      "from": 16.079795999999998,
+      "dur": 3.272000000000002,
+      "seg": "work-dialogue/seg/08.mp4"
+    }
+  ],
+  "narration": {
+    "file": "work-dialogue/narration.mp3",
+    "seconds": 17.751796,
+    "words": 42,
+    "leadIn": 0.6,
+    "mode": "dialogue"
+  },
+  "mix": "work-dialogue/mix.m4a"
+}

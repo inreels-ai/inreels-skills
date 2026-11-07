@@ -1,2 +1,4 @@
 work/
+work-*/
 .env
+examples/*.mp4
