@@ -1,0 +1,21 @@
+{
+  "name": "inreels",
+  "description": "Generate ads, UGC videos, animated shorts and images from your editor. Bundles the hosted inReels MCP server with craft skills for each format.",
+  "version": "1.0.0",
+  "author": {
+    "name": "inReels",
+    "email": "hello@inreels.ai"
+  },
+  "homepage": "https://www.inreels.ai/connect",
+  "repository": "https://github.com/inreels-ai/inreels-skills",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "ads",
+    "ugc",
+    "image-generation",
+    "marketing",
+    "mcp"
+  ],
+  "logo": "assets/icon.png"
+}

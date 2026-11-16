@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "inreels",
+  "description": "inReels — generate ads, UGC videos, animated shorts and images from your editor.",
+  "owner": {
+    "name": "inReels",
+    "email": "hello@inreels.ai",
+    "url": "https://www.inreels.ai"
+  },
+  "plugins": [
+    {
+      "name": "inreels",
+      "source": ".",
+      "description": "The hosted inReels MCP server plus craft skills for ads, UGC, animated shorts, faceless video and static creatives.",
+      "category": "media",
+      "tags": ["video", "ads", "ugc", "image-generation", "marketing"]
+    }
+  ]
+}

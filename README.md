@@ -7,6 +7,21 @@ The skills are MIT licensed and free. The rendering service they call is paid.
 
 ## Install
 
+One step in Claude Code — this installs the MCP server and every skill together:
+
+```
+/plugin install inreels --marketplace inreels-ai/inreels-skills
+```
+
+Then run `/mcp`, pick `inreels` and sign in from the browser. Nothing to
+configure: the server speaks OAuth, so there is no key to paste.
+
+In Cursor, install this repository as a plugin from the marketplace — the same
+manifest wires up the MCP server and the skills.
+
+<details>
+<summary>Other clients, or doing it by hand</summary>
+
 Point your agent at the install instructions and let it do the work:
 
 ```
@@ -28,8 +43,10 @@ Then run `/mcp`, pick `inreels` and sign in from the browser. Or create a key
 at <https://www.inreels.ai/dashboard/settings/api-keys> and set it as the
 server's bearer token.
 
-Cursor, Codex, ChatGPT and Muse are all supported —
+Codex, ChatGPT and Muse are all supported —
 see <https://www.inreels.ai/connect>.
+
+</details>
 
 ## The skills
 

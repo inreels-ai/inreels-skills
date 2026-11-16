@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "inreels",
+  "displayName": "inReels",
+  "version": "1.0.0",
+  "description": "Generate ads, UGC videos, animated shorts and images from your editor. Bundles the hosted inReels MCP server with craft skills for each format.",
+  "author": {
+    "name": "inReels",
+    "email": "hello@inreels.ai",
+    "url": "https://www.inreels.ai"
+  },
+  "homepage": "https://www.inreels.ai/connect",
+  "repository": "https://github.com/inreels-ai/inreels-skills",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "ads",
+    "ugc",
+    "image-generation",
+    "marketing",
+    "mcp"
+  ],
+  "documentationUrl": "https://www.inreels.ai/connect",
+  "supportUrl": "https://www.inreels.ai/contact",
+  "privacyPolicyUrl": "https://www.inreels.ai/privacy",
+  "termsOfServiceUrl": "https://www.inreels.ai/terms",
+  "mcpServers": {
+    "inreels": {
+      "type": "http",
+      "url": "https://www.inreels.ai/api/mcp"
+    }
+  },
+  "icon": "./assets/icon.png"
+}
