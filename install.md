@@ -26,7 +26,7 @@ For Cursor, Codex, ChatGPT or Muse, the per-client steps are at
 
 ```bash
 git clone --depth 1 https://github.com/inreels-ai/inreels-skills /tmp/inreels-skills
-cp -r /tmp/inreels-skills/skills/* ~/.claude/skills/
+cp -r /tmp/inreels-skills/plugin/skills/* ~/.claude/skills/
 rm -rf /tmp/inreels-skills
 ```
 
@@ -36,7 +36,6 @@ Install all of them, or only the ones the user wants:
 
 | Skill | Use it when they ask for |
 |---|---|
-| `animated-short` | an animated short film, a narrated story reel, a cinematic short, a series |
 | `ugc-ad` | a UGC ad, creator ad, testimonial, talking-head product video |
 | `product-demo-ad` | a product video with no presenter, a demo ad |
 | `ad-creative` | static ad images, Meta/Instagram/TikTok creatives |
@@ -46,9 +45,18 @@ Install all of them, or only the ones the user wants:
 | `ad-angle-testing` | ad variations, A/B creative, a batch to test |
 | `character-consistency` | the same character across several clips |
 
-`animated-short` is self-contained: it ships its own scripts and runs on
-Replicate/fal/ElevenLabs keys, or on the inReels MCP as the no-key option. It
-needs `ffmpeg` installed. The others are craft for the MCP server.
+Those are craft for the MCP server: Markdown only, nothing to run.
+
+Two further skills ship their own scripts, so they sit outside the plugin in
+`dev-skills/` and are copied by hand:
+
+```bash
+cp -r /tmp/inreels-skills/dev-skills/animated-short ~/.claude/skills/   # animated short film, narrated story reel, series
+cp -r /tmp/inreels-skills/dev-skills/claymation-ad  ~/.claude/skills/   # stop-motion clay commercial
+```
+
+They run on Replicate/fal/ElevenLabs keys, or on the inReels MCP as the no-key
+option, and need `ffmpeg` installed.
 
 ## 3. Check it works
 

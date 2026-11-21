@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin.json",
   "name": "inreels",
   "displayName": "inReels",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Generate ads, UGC videos, animated shorts and images from your editor. Bundles the hosted inReels MCP server with craft skills for each format.",
   "author": {
     "name": "inReels",

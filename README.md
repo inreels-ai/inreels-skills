@@ -2,140 +2,32 @@
 
 Open skills for making ads, UGC video and faceless shorts from an AI agent,
 built on the [inReels MCP server](https://www.inreels.ai/api/mcp).
-
-The skills are MIT licensed and free. The rendering service they call is paid.
+MIT licensed and free; the rendering service they call is paid.
 
 ## Install
 
-One step in Claude Code — this installs the MCP server and every skill together:
+One step in Claude Code — the MCP server and every skill together:
 
 ```
 /plugin install inreels --marketplace inreels-ai/inreels-skills
 ```
 
-Then run `/mcp`, pick `inreels` and sign in from the browser. Nothing to
-configure: the server speaks OAuth, so there is no key to paste.
+Then run `/mcp`, pick `inreels` and sign in from the browser. There is no key
+to paste: the server speaks OAuth.
 
-In Cursor, install this repository as a plugin from the marketplace — the same
-manifest wires up the MCP server and the skills.
+Other clients, and doing it by hand, are covered in
+[`plugin/README.md`](plugin/README.md) and [`install.md`](install.md).
+Per-client steps live at <https://www.inreels.ai/connect>.
 
-<details>
-<summary>Other clients, or doing it by hand</summary>
+## What is where
 
-Point your agent at the install instructions and let it do the work:
-
-```
-Install the inReels skills: https://raw.githubusercontent.com/inreels-ai/inreels-skills/main/install.md
-```
-
-Or by hand:
-
-```bash
-# 1. Add the MCP server
-claude mcp add --transport http --scope user inreels https://www.inreels.ai/api/mcp
-
-# 2. Copy the skills you want
-git clone https://github.com/inreels-ai/inreels-skills
-cp -r inreels-skills/skills/* ~/.claude/skills/
-```
-
-Then run `/mcp`, pick `inreels` and sign in from the browser. Or create a key
-at <https://www.inreels.ai/dashboard/settings/api-keys> and set it as the
-server's bearer token.
-
-Codex, ChatGPT and Muse are all supported —
-see <https://www.inreels.ai/connect>.
-
-</details>
+| Path | What it holds |
+|---|---|
+| [`plugin/`](plugin) | The published plugin: the MCP server and the eight Markdown craft skills. This is the folder the directory installs. |
+| [`dev-skills/`](dev-skills) | `animated-short` and `claymation-ad`. These two ship their own render scripts and need `ffmpeg`, so they are installed by copying the folder rather than through the plugin. |
+| [`install.md`](install.md) | Instructions written for an AI coding agent to follow. |
 
 ## The skills
 
-**Make something**
-
-| Skill | What it does |
-|---|---|
-| [`animated-short`](animated-short/SKILL.md) | One line → an animated short film: story, consistent character, narration, sound, rendered MP4 |
-| [`claymation-ad`](claymation-ad/SKILL.md) | A stop-motion clay commercial: clay characters intercut with photoreal macro, cut to a real broadcast beat map |
-| [`ugc-ad`](ugc-ad/SKILL.md) | Product image + creator + spoken script → rendered UGC video ad, with native audio |
-| [`product-demo-ad`](product-demo-ad/SKILL.md) | No presenter — the product doing its job, in motion |
-| [`ad-creative`](ad-creative/SKILL.md) | Angle → hook → rendered static ad creative, sized for the placement |
-| [`faceless-video`](faceless-video/SKILL.md) | Retention-shaped script → scenes, narration, captions → rendered MP4 |
-| [`scary-story-video`](scary-story-video/SKILL.md) | Horror, true crime and unsolved mystery shorts, and the craft they need |
-
-**Craft the others lean on**
-
-| Skill | What it does |
-|---|---|
-| [`hook-writing`](hook-writing/SKILL.md) | The first two seconds — five shapes that work, and testing them properly |
-| [`ad-angle-testing`](ad-angle-testing/SKILL.md) | A set of ads that disagree usefully, instead of one ad four times |
-| [`character-consistency`](character-consistency/SKILL.md) | Keep the same person or product across several generated clips |
-
-Each one states its method, names the failure modes it has actually seen, and
-is honest about what it does not do.
-
-`animated-short` and `claymation-ad` are the odd ones out: they ship working scripts and run on
-whatever backend you point it at — Replicate, fal, ElevenLabs, or the inReels
-MCP as the no-key option. The rest are craft and method for the MCP server
-below.
-
-## What the MCP server exposes
-
-17 tools across two layers.
-
-**Capabilities** return a finished deliverable and choose the model for you:
-
-- `create_ad_video` — a finished ad from a product image, with native audio.
-  Add a creator and it becomes a UGC ad.
-- `create_faceless_video` — script to scenes to narration to captions to MP4.
-- `quote_ad_video`, `quote_faceless_video` — exact price first.
-
-**Primitives** render one asset and expose the full parameter surface:
-
-- `generate_image`, `generate_video`, `generate_speech`
-- `quote` — exact price of any primitive call, charging nothing.
-
-**Discovery and plumbing**, all free:
-
-- `list_models`, `list_voices`, `list_styles`, `list_actors`
-- `get_run_status`, `list_runs`, `get_account`
-- `upload_image`, `refresh_asset_url`
-
-## Conventions worth knowing
-
-**Nothing blocks.** Every generating tool returns a `run_id` immediately,
-because a model that usually takes 20 seconds sometimes takes 180, and a host
-agent that waits that long has stalled a conversation. Poll with
-`get_run_status { wait: true }`, which blocks up to 45 seconds.
-
-**Video has two stages.** The scenes are built, then the MP4 is rendered —
-roughly 5–10 minutes end to end. A run reports `completed` only once the file
-exists. A `watch_url` appears before `output_url` does; it is a preview page,
-not the deliverable, and handing it to a user as the finished video is the most
-common mistake an agent makes here.
-
-**Quote before you spend.** The price is a pure function of the validated
-request, so `quote` and the real call cannot disagree.
-
-**Failed runs refund in full.** A provider rejecting our request shape is our
-defect, not the caller's input.
-
-**Models are validated against live provider schemas.** Every option the server
-exposes is checked against what the provider actually publishes, so an agent
-cannot be handed a parameter combination that 422s. This exists because it once
-did: a lowercase `768p` where the provider wanted `768P` failed every generation
-on the default model until a customer reported it.
-
-**Unlisted ids are rejected, not substituted.** A model, voice, style or music
-id that is not in the list comes back as an error rather than quietly becoming
-something else.
-
-## Contributing
-
-Skills are plain Markdown with YAML frontmatter — `name` and `description`, then
-the method. A good one is specific about craft and specific about what fails.
-PRs welcome.
-
-## License
-
-MIT for the skills in this repository. The inReels API is a separate paid
-service under its own terms.
+See [`plugin/README.md`](plugin/README.md) for what each one does and the
+method behind it.

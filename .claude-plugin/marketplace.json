@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "inreels",
-      "source": ".",
+      "source": "./plugin",
       "description": "The hosted inReels MCP server plus craft skills for ads, UGC, animated shorts, faceless video and static creatives.",
       "category": "media",
       "tags": ["video", "ads", "ugc", "image-generation", "marketing"]
